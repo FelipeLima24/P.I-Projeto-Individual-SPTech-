@@ -1,20 +1,38 @@
-create database smartshape;
-use smartshape;
+CREATE DATABASE smartshape;
+USE smartshape;
 
-create table usuario (
-idUsuario int primary key auto_increment,
-nome varchar(45) not null,
-email varchar(45) unique not null,
-telefone char(10) unique not null,
-cpf char(11) unique not null
+
+CREATE TABLE usuario (
+  idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+  nome      VARCHAR(45) NOT NULL,
+  email     VARCHAR(45) NOT NULL UNIQUE,
+  telefone  CHAR(10)    NOT NULL UNIQUE,
+  cpf       CHAR(11)    NOT NULL UNIQUE
 );
 
-create table protocolo (
-idProtocolo int primary key auto_increment,
-treino varchar(300) not null,
-dieta varchar(300) not null,
-metodoTreino varchar(45) not null,
-fkUsuario int,
-foreign key (fkusuario) references usuario(idUsuario)
+
+CREATE TABLE treino (
+  idTreino   INT AUTO_INCREMENT PRIMARY KEY,
+  tipo       VARCHAR(45) NOT NULL,
+  dia        VARCHAR(45),
+  exercicios VARCHAR(45)
 );
 
+
+CREATE TABLE dieta (
+  idDieta   INT AUTO_INCREMENT PRIMARY KEY,
+  calorias  FLOAT NOT NULL,
+  alimentos VARCHAR(45)
+);
+
+
+CREATE TABLE protocolo (
+  idProtocolo  INT AUTO_INCREMENT PRIMARY KEY,
+  metodoTreino VARCHAR(45) NOT NULL,
+  fkUsuario INT NOT NULL,
+  fkTreino  INT NOT NULL,
+  fkDieta   INT NOT NULL,
+  FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+  FOREIGN KEY (fkTreino)  REFERENCES treino(idTreino),
+  FOREIGN KEY (fkDieta)   REFERENCES dieta(idDieta)
+);
