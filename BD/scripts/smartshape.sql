@@ -1,38 +1,42 @@
 CREATE DATABASE smartshape;
 USE smartshape;
 
-
+-- Tabela usuario
 CREATE TABLE usuario (
-  idUsuario INT AUTO_INCREMENT PRIMARY KEY,
-  nome      VARCHAR(45) NOT NULL,
-  email     VARCHAR(45) NOT NULL UNIQUE,
-  telefone  CHAR(10)    NOT NULL UNIQUE,
-  cpf       CHAR(11)    NOT NULL UNIQUE
+ idCliente INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+ nome VARCHAR(45) NOT NULL,
+ email VARCHAR(45) NOT NULL UNIQUE,
+ telefone CHAR(10) NOT NULL UNIQUE,
+ cpf CHAR(11) NOT NULL UNIQUE
 );
 
 
+-- Tabela treino
 CREATE TABLE treino (
-  idTreino   INT AUTO_INCREMENT PRIMARY KEY,
-  tipo       VARCHAR(45) NOT NULL,
-  dia        VARCHAR(45),
-  exercicios VARCHAR(45)
-);
+ idTreino INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ tipo VARCHAR(45) NOT NULL,
+ dia VARCHAR(45) NOT NULL,
+ exercicios VARCHAR(45) NOT NULL
+ );
 
 
+-- Tabela dietas
 CREATE TABLE dieta (
-  idDieta   INT AUTO_INCREMENT PRIMARY KEY,
+  idDieta INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   calorias  FLOAT NOT NULL,
-  alimentos VARCHAR(45)
+  alimentos VARCHAR(45) NOT NULL
 );
 
 
+-- Tabela protocolo associativa
 CREATE TABLE protocolo (
-  idProtocolo  INT AUTO_INCREMENT PRIMARY KEY,
-  metodoTreino VARCHAR(45) NOT NULL,
-  fkUsuario INT NOT NULL,
-  fkTreino  INT NOT NULL,
-  fkDieta   INT NOT NULL,
-  FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-  FOREIGN KEY (fkTreino)  REFERENCES treino(idTreino),
-  FOREIGN KEY (fkDieta)   REFERENCES dieta(idDieta)
+  idTreino INT NOT NULL,
+  idDieta INT NOT NULL,
+  fkCliente INT NOT NULL,
+  dtInicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  dtFinal DATE,
+  PRIMARY KEY (idTreino, idDieta, fkCliente),
+  FOREIGN KEY (idTreino) REFERENCES treino  (idTreino),
+  FOREIGN KEY (idDieta)  REFERENCES dieta   (idDieta),
+  FOREIGN KEY (fkCliente) REFERENCES usuario (idCliente)
 );
