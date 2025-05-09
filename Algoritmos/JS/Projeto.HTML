@@ -3,92 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dieta & Treino</title>
+  <title>smartshape</title>
 </head>
 <body>
-  <h2>Dieta &amp; Treino</h2>
-  Insira seu peso (kg) <input id="ipt_peso"> <br><br>
-  Insira sua altura (m) <input id="ipt_altura"> <br><br>
-  Qual seu objetivo na academia (emagrecer ou ganhar massa) <input id="ipt_objetivo"> <br><br>
-  Qual músculo pretende focar? (peito, costas, pernas, braços, ombros, abdômen) <input id="ipt_musculo"> <br><br>
-  Qual seu estilo de treino (leve, médio ou pesado) <input id="ipt_estilo"> <br><br>
+  <h1>SmartShape</h2>
+
+  <h2>Cadastro</h2>
+
+  Insira seu nome <input id="ipt_nome"> <br> <br>
+
+  Insira seu email <input id="ipt_email"> <br> <br>
+
+  Insira seu telefone <input id=ipt_telefone"> <br> <br>
+
+  Insira seu CPF <input id="ipt_cpf"> <br> <br>
 
   <button onclick="cadastrar()">Cadastrar Perfil</button>
-  <button onclick="mostrar()">Mostrar Perfis</button>
+
+  <h2>Calculadora taxa metabolismo basal </h2>
+  Insira seu peso (kg) <input id="ipt_peso" placeholder="Ex:70kg"> <br><br>
+
+  Insira sua altura (cm) <input id="ipt_altura" placeholder="Ex:170"> <br><br>
+
+  Qual seu objetivo na academia (emagrecer ou massa) <input id="ipt_objetivo"> <br><br>
+
+  Qual músculo pretende focar? (peito, costas, pernas, braços, ombros, abdômen) 
+  <input id="ipt_musculo" placeholder="Escolha o músculo que mais quer desenvolver"> <br><br>
+
+  Qual seu estilo de treino (leve, médio ou pesado) <input id="ipt_estilo"> <br><br>
+
+  <button onclick="calcular()">Calcular TMB</button> 
+  <button onclick="protocolo()">Criar protocolo</button> 
+  
+
+
   <div id="msg"></div>
+
 
   <script>
     var perfis = [];
 
-    function cadastrar() {
-      var peso     = parseFloat(ipt_peso.value);
-      var altura   = parseFloat(ipt_altura.value);
-      var objetivo = ipt_objetivo.value;
-      var musculo  = ipt_musculo.value;
-      var estilo   = ipt_estilo.value;
+      function calcular() {
+        var peso     = parseFloat(ipt_peso.value);
+        var altura   = parseFloat(ipt_altura.value);
+        var objetivo = ipt_objetivo.value;
+        var musculo  = ipt_musculo.value;
+        var estilo   = ipt_estilo.value;
 
-      // validações
-      if (isNaN(peso) || peso <= 0) {
-        msg.innerHTML = 'Peso inválido! Digite um número maior que zero.';
-        return;
+          if (peso < 40) {
+            msg.innerHTML = 'Peso inválido! Digite um número maior que zero.';
+    
+    }
+          else if (altura < 100) {
+            msg.innerHTML = 'Altura inválida! Digite um número maior que 100.';
+        
+    }
+     
+          if (objetivo !== 'emagrecer' && objetivo !== 'ganhar massa') {
+            msg.innerHTML = 'Objetivo inválido! Use "emagrecer" ou "massa".';
+    
       }
-      if (isNaN(altura) || altura <= 0) {
-        msg.innerHTML = 'Altura inválida! Digite um número maior que zero.';
-        return;
-      }
-      // objetivo
-      if (objetivo !== 'emagrecer' && objetivo !== 'ganhar massa') {
-        msg.innerHTML = 'Objetivo inválido! Use "emagrecer" ou "ganhar massa".';
-        return;
-      }
-      // músculo
-      var musculosValidos = ['peito','costas','pernas','braços','ombros','abdômen'];
-      if (musculosValidos.indexOf(musculo) === -1) {
-        msg.innerHTML = 'Músculo inválido! Escolha entre: ' + musculosValidos.join(', ') + '.';
-        return;
+     
+          var musculosValidos = ['peito','costas','pernas','braços','ombros','abdômen'];
+          if (musculosValidos != musculo) {
+          msg.innerHTML = 'Músculo inválido! Escolha entre: ' + musculosValidos.join(', ') + '.';
+    
       }
       // estilo
-      var estilosValidos = ['leve','médio','pesado'];
-      if (estilosValidos.indexOf(estilo) === -1) {
+      var estilosValidos = ['leve','médio', 'medio', 'pesado'];
+      if (estilos != estilo) {
         msg.innerHTML = 'Estilo de treino inválido! Use "leve", "médio" ou "pesado".';
-        return;
-      }
-
-      // se chegou aqui, tá tudo certo:
-      perfis.push({
-        peso: peso,
-        altura: altura,
-        objetivo: objetivo,
-        musculo: musculo,
-        estilo: estilo
-      });
-
-      // limpa campos
-      ipt_peso.value = '';
-      ipt_altura.value = '';
-      ipt_objetivo.value = '';
-      ipt_musculo.value = '';
-      ipt_estilo.value = '';
-
-      msg.innerHTML = 'Perfil cadastrado! Total de perfis: ' + perfis.length + '.';
-    }
-
-    function mostrar() {
-      if (perfis.length === 0) {
-        msg.innerHTML = 'Nenhum perfil cadastrado.';
-        return;
-      }
-      msg.innerHTML = '';
-      for (var i = perfis.length - 1; i >= 0; i--) {
-        var p = perfis[i];
-        msg.innerHTML += 
-          'Perfil ' + (i+1) + ': ' +
-          'Peso=' + p.peso + 'kg, ' +
-          'Altura=' + p.altura + 'm, ' +
-          'Objetivo=' + p.objetivo + ', ' +
-          'Músculo=' + p.musculo + ', ' +
-          'Estilo=' + p.estilo +
-          '<br>';
+      
       }
     }
   </script>
