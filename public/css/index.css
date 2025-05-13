@@ -1,0 +1,246 @@
+
+* {                                /* Aplica a todos os elementos */
+  margin: 0;                       /* Remove margens padrão */
+  padding: 0;                      /* Remove preenchimentos padrão */
+  box-sizing: border-box;         /* Inclui bordas e padding na largura/altura do elemento */
+}
+
+/* base do site */
+body {
+  font-family: 'Helvetica Neue', sans-serif; /* Define a fonte principal da página */
+  background-color: #ffffff;                 
+  color: #000000;                               
+  line-height: 1.6;                          /* Espaçamento entre linhas para melhor leitura */
+}
+
+/* cabecalho */
+header {
+  display: flex;                             
+  justify-content: space-between;           
+  align-items: center;                      
+  padding: 20px 40px;                        
+  background-color: #000;                    
+}
+
+.logo {
+  font-size: 2rem;                          
+  color: #0f0;                              
+  font-weight: bold;                        
+}
+
+header div button {
+  background-color: #0f0;                   
+  color: #000;                              
+  font-weight: bold;                        
+  border: none;                             
+  padding: 10px 20px;                       /* Espaço interno do botão */
+  border-radius: 6px;                       /* Cantos arredondados */
+  margin-left: 10px;                        
+  cursor: pointer;                          
+}
+
+header div button:hover {
+ opacity: 0.85;                         /*   transparencia */
+}
+
+/* título e paragrafo */
+.titulo {
+  max-width: 1000px;                        /* Limita a largura máxima */
+  margin: 60px auto 20px;                   /* Centraliza e dá espaço acima (60px) e abaixo (20px) */
+  text-align: center;                       /* Centraliza o texto */
+  padding: 0 20px;                          /* Espaço lateral */
+}
+
+.titulo h1 {
+  font-size: 2rem;                          
+  margin-bottom: 20px;                      /* Espaço abaixo do título */
+  font-weight: bold;                        
+}
+
+.titulo p {
+  font-size: 1.1rem;                        
+  color: #000000;                              
+  line-height: 1.8;                         /* Espaçamento*/
+}
+
+/* como funciona */
+.section-como {
+  display: flex;                            
+  align-items: center;                      
+  max-width: 1000px;                        
+  margin: 40px auto;                        
+  gap: 40px;                                /* Espaçamento entre imagem e texto */
+  padding: 0 20px;                          /* Espaçamento lateral */
+  
+}
+
+
+.section-como .texto {
+  flex: 1;                                  /* Ocupa metade da largura disponível */
+}
+
+.section-como .texto h2 {
+  font-size: 1.5rem;                        
+  margin-bottom: 12px;                      
+  color: #000;                              
+}
+
+.section-como .texto p {
+  font-size: 1rem;                          /* Tamanho padrão de parágrafo */
+  color: #000000;                              
+}
+
+.section-como .imagem {
+  flex: 1;                                  /* Ocupa metade da largura disponível */
+  text-align: center;                       /* Centraliza a imagem */
+}
+
+.section-como .imagem img {
+  max-width: 100%;                          /* Garante que a imagem não ultrapasse o container */
+  border-radius: 12px;                      /* Cantos arredondados na imagem */
+}
+
+/* bf imagens */
+.grid-bf {
+  max-width: 1000px;                        /* Largura máxima da grade */
+  margin: 5px auto;                        /* Espaçamento vertical e centraliza */
+  padding: 0 20px;                          /* Espaço lateral */
+  text-align: center;                       /* Centraliza o conteúdo */
+}
+
+.grid-bf img {
+  max-width: 100%;                          /* Imagem preenche o container */
+  border-radius: 8px;                       /* Cantos arredondados */
+}
+
+/* bf explicacao */
+.box-bf {
+  max-width: 1000px;                        /* Largura máxima da caixa */
+  margin: 40px auto;                        /* Espaço vertical e centraliza */
+  background: #fff;                         
+  padding: 30px;                            /* Espaço interno */
+  border-radius: 10px;                      /* Cantos arredondados */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);     /* Sombra leve para destacar a caixa */
+}
+
+.box-bf h3 {
+  display: flex;
+  justify-content: center; 
+  font-size: 1.5rem;                        /* Tamanho do título */
+  margin-bottom: 16px;                      /* Espaço abaixo do título */
+  
+
+}
+
+.box-bf p {
+  font-size: 1rem;                          /* Tamanho de texto */
+  color: #000000;                              /* Cor do texto suave */
+  line-height: 1.7;                         /* Espaçamento entre linhas */
+  
+}
+
+/* tmb  */
+.section-tmb {
+  display: flex;                            
+  max-width: 1000px;                        /* Largura máxima */
+  margin: 60px auto;                        /* Espaço vertical e centraliza */
+  gap: 40px;                                /* Espaço entre texto e formulário */
+  padding: 0 20px;                          /* Espaçamento lateral */
+  display:flex                 
+  
+}
+
+.section-tmb .texto {
+  flex: 1;                                  /* Ocupa metade da largura */
+}
+
+.section-tmb .texto h3 {
+  display: flex;
+  font-size: 1.5rem;                        /* Tamanho do título */
+  margin-bottom: 12px;                      /* Espaço abaixo do título */
+}
+
+.section-tmb .texto p {
+  font-size: 1rem;                          /* Tamanho do texto */
+  color: #000000;                              /* Cor de texto suave */
+  display: flex;
+  
+}
+
+.section-tmb .form-card {
+  flex: 1;                                  /* Ocupa metade da largura */
+  background: #000;                         
+  color: #fff;                              
+  padding: 20px;                            /* Espaço interno */
+  border-radius: 10px;                      /* Cantos arredondados */
+}
+
+.section-tmb .form-card h4 {
+  font-size: 1.2rem;                        /* Título da seção */
+  margin-bottom: 16px;                      /* Espaço abaixo do título */
+  text-align: center;                       
+}
+
+
+.section-tmb .form-card input {
+  width: 100%;                              
+  padding: 10px;                            /* Espaço interno */
+  margin-top: 6px;                          /* Espaço acima do campo */
+  border: none;                             
+  border-radius: 6px;                       /* Cantos arredondados */
+}
+
+.section-tmb .form-card button {
+  width: 100%;                              
+  margin-top: 20px;                         /* Espaço acima do botão */
+  padding: 12px;                            /* Espaço interno do botão */
+  background: #0f0;                         
+  border: none;                             
+  color: #000;                              
+  font-weight: bold;                        
+  border-radius: 6px;                       /* Cantos arredondados */
+  cursor: pointer;                          
+}
+
+/* efeito botao */
+.section-tmb .form-card button:hover {
+  opacity: 0.9;                             
+}
+
+#msg {
+  margin-top: 16px;                         
+  color: #0f0;                              
+  font-weight: bold;                        
+  text-align: center;                       
+}
+
+/* alteração inputs  */
+
+#peso-id{
+text-align: center;
+}
+
+#altura-id{
+  text-align: center;
+}
+
+#sexo-id{
+  text-align: center;
+}
+
+#idade-id{
+  text-align: center;
+}
+
+#fator-id{
+  text-align: center;
+}
+
+/* / Rodape */
+
+footer{
+  background-color: #000;
+  color: #Fff;
+  height: 100px;
+  text-align: center;
+}
