@@ -9,6 +9,13 @@ var mySqlConfig = {
     port: process.env.DB_PORT
 };
 
+console.log("DB_CONN →", {
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  user: process.env.DB_USER,
+  port: process.env.DB_PORT
+});
+
 function executar(instrucao) {
 
     if (process.env.AMBIENTE_PROCESSO !== "producao" && process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {

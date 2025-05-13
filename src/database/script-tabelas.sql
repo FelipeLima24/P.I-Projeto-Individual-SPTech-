@@ -3,13 +3,25 @@ CREATE DATABASE smartshape;
 USE smartshape;
 
 -- Tabela usuario
-CREATE TABLE usuario (
- idCliente INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+CREATE TABLE usuarioCadastro (
+ idUsuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
  nome VARCHAR(45) NOT NULL,
  email VARCHAR(45) NOT NULL UNIQUE,
  telefone CHAR(11) NOT NULL UNIQUE,
  cpf CHAR(11) NOT NULL UNIQUE,
  senha VARCHAR(45) NOT NULL
+);
+
+-- Tabela dadosCorporais
+CREATE TABLE dadosCorporais (
+idDadosCorporais INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+altura FLOAT NOT NULL,
+peso FLOAT NOT NULL,
+sexo VARCHAR(45) NOT NULL,
+idade CHAR(2) NOT NULL,
+fkUsuario INT NOT NULL,
+FOREIGN KEY (fkUsuario)
+REFERENCES usuario(idUsuario)
 );
 
 
@@ -22,11 +34,11 @@ CREATE TABLE treino (
  );
 
 
--- Tabela dietas
+-- Tabela dieta
 CREATE TABLE dieta (
   idDieta INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   calorias  FLOAT NOT NULL,
-  alimentos VARCHAR(45) NOT NULL
+  alimentos VARCHAR(255) NOT NULL
 );
 
 
@@ -34,11 +46,12 @@ CREATE TABLE dieta (
 CREATE TABLE protocolo (
   idTreino INT NOT NULL,
   idDieta INT NOT NULL,
+  bf INT NOT NULL,
   fkCliente INT NOT NULL,
   dtInicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   dtFinal DATE,
   PRIMARY KEY (idTreino, idDieta, fkCliente),
-  FOREIGN KEY (idTreino) REFERENCES treino  (idTreino),
-  FOREIGN KEY (idDieta)  REFERENCES dieta   (idDieta),
-  FOREIGN KEY (fkCliente) REFERENCES usuario (idCliente)
+  FOREIGN KEY (idTreino) REFERENCES treino(idTreino),
+  FOREIGN KEY (idDieta)  REFERENCES dieta(idDieta),
+  FOREIGN KEY (fkCliente) REFERENCES usuario(idCliente)
 );
