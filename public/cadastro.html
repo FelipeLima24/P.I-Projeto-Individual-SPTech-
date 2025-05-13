@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="./js/cadastro.js"></script>
+  <title>Cadastro – SmartShape</title>
+  <!-- linkando com css  -->
+  <link rel="stylesheet" href="css/cadastro.css">
 </head>
 <body>
-  <h2>Cadastro</h2>
 
-  Insira seu nome <input id="ipt_nome"> <br> <br>
+  <div class="cadastro-form">
+    <h2>Cadastro</h2>
 
-  Insira seu email <input id="ipt_email"> <br> <br>
+    Insira seu nome <input id="ipt_nome" type="text"> <br><br>
+    Insira seu email <input id="ipt_email" type="email"> <br><br>
+    Insira seu telefone <input id="ipt_telefone" type="tel"> <br><br>
+    Insira seu CPF <input id="ipt_cpf" type="text"> <br><br>
+    Insira sua senha <input id="ipt_senha" type="password"> <br><br>
 
-  Insira seu telefone <input id="ipt_telefone"> <br> <br>
+    <button onclick="cadastrar()">Cadastrar Perfil</button>
+    <div id="msg"></div>
+  </div>
 
-  Insira seu CPF <input id="ipt_cpf"> <br> <br>
 
-  Insira sua senha <input id="ipt_senha">
+    <p>Já está cadastrado? <a href="login.html">Faça login</a></p>
 
-  <button onclick="cadastrar()">Cadastrar Perfil</button>
-  
+    <!-- linkando com js -->
+  <script src="js/cadastro.js"></script>
 </body>
 </html>
-  
