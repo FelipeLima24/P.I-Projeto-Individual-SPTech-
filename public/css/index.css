@@ -167,7 +167,7 @@ header div button:hover {
   
 }
 
-.section-tmb .form-card {
+.section-tmb .tituloCalc {
   flex: 1;                                  /* Ocupa metade da largura */
   background: #000;                         
   color: #fff;                              
@@ -175,14 +175,14 @@ header div button:hover {
   border-radius: 10px;                      /* Cantos arredondados */
 }
 
-.section-tmb .form-card h4 {
+.section-tmb .tituloCalc h4 {
   font-size: 1.2rem;                        /* Título da seção */
   margin-bottom: 16px;                      /* Espaço abaixo do título */
   text-align: center;                       
 }
 
 
-.section-tmb .form-card input {
+.section-tmb .tituloCalc input {
   width: 100%;                              
   padding: 10px;                            /* Espaço interno */
   margin-top: 6px;                          /* Espaço acima do campo */
@@ -190,7 +190,7 @@ header div button:hover {
   border-radius: 6px;                       /* Cantos arredondados */
 }
 
-.section-tmb .form-card button {
+.section-tmb .tituloCalc button {
   width: 100%;                              
   margin-top: 20px;                         /* Espaço acima do botão */
   padding: 12px;                            /* Espaço interno do botão */
@@ -203,7 +203,7 @@ header div button:hover {
 }
 
 /* efeito botao */
-.section-tmb .form-card button:hover {
+.section-tmb .tituloCalc button:hover {
   opacity: 0.9;                             
 }
 
