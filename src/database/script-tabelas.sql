@@ -2,7 +2,7 @@
 CREATE DATABASE smartshape;
 USE smartshape;
 
--- Tabela usuario
+-- Tabela usuarioCadastro
 CREATE TABLE usuarioCadastro (
  idUsuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
  nome VARCHAR(45) NOT NULL,
@@ -12,46 +12,32 @@ CREATE TABLE usuarioCadastro (
  senha VARCHAR(45) NOT NULL
 );
 
--- Tabela dadosCorporais
-CREATE TABLE dadosCorporais (
-idDadosCorporais INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-altura FLOAT NOT NULL,
-peso FLOAT NOT NULL,
-sexo VARCHAR(45) NOT NULL,
-idade CHAR(2) NOT NULL,
-fkUsuario INT NOT NULL,
-FOREIGN KEY (fkUsuario)
-REFERENCES usuario(idUsuario)
+select * from usuarioCadastro;
+
+-- Tabela questionário
+CREATE TABLE questionario ( 
+idQuestionario INT PRIMARY KEY AUTO_INCREMENT,
+descricao VARCHAR(250),
+dtInicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
-
--- Tabela treino
-CREATE TABLE treino (
- idTreino INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- tipo VARCHAR(45) NOT NULL,
- dia VARCHAR(45) NOT NULL,
- exercicios VARCHAR(45) NOT NULL
- );
-
-
--- Tabela dieta
-CREATE TABLE dieta (
-  idDieta INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  calorias  FLOAT NOT NULL,
-  alimentos VARCHAR(255) NOT NULL
-);
-
 
 -- Tabela protocolo associativa
 CREATE TABLE protocolo (
-  idTreino INT NOT NULL,
-  idDieta INT NOT NULL,
-  bf INT NOT NULL,
-  fkCliente INT NOT NULL,
-  dtInicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  dtFinal DATE,
-  PRIMARY KEY (idTreino, idDieta, fkCliente),
-  FOREIGN KEY (idTreino) REFERENCES treino(idTreino),
-  FOREIGN KEY (idDieta)  REFERENCES dieta(idDieta),
-  FOREIGN KEY (fkCliente) REFERENCES usuario(idCliente)
+fkQuestionario INT,
+fkUsuario INT,
+altura VARCHAR(45),
+peso VARCHAR(45),
+sexo VARCHAR(45),
+idade INT,
+estiloTreino VARCHAR(45),
+exercicios VARCHAR(45),
+calorias FLOAT,
+carboidratos FLOAT,
+proteinas FLOAT,
+GORDURAS FLOAT,
+PRIMARY KEY (fkQuestionario, fkUsuario),
+FOREIGN KEY fkQuestionario REFERENCES questionario(idQuestionario),
+FOREIGN KEY fkUsuario REFERENCES usuarioCadastro(idCadastro)
 );
+
+select * from protocolo;
