@@ -1,18 +1,14 @@
-// login.js - lógica de autenticação
-
 function entrar() {
-  // 1) Captura valores dos inputs
-  const email  = document.getElementById("ipt_email").value;
-  const senha  = document.getElementById("ipt_senha").value;
-  const msgDiv = document.getElementById("msgLogin");
+  var email  = document.getElementById("ipt_email").value;
+  var senha  = document.getElementById("ipt_senha").value;
+  var msg = document.getElementById("msg");
 
-  // 2) Validação simples antes de enviar
-  if (!email || !senha) {
-    msgDiv.textContent = "Preencha email e senha!";
+ 
+  if (email == '' || senha == '') {
+    msg.innerHTML  = "Por favor preencha com todos os campos";
     return;
   }
 
-  // 3) Faz POST para o endpoint de login
   fetch("http://localhost:3333/usuarios/entrar", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -31,12 +27,11 @@ function entrar() {
     }
   })
   .then(usuario => {
-    // 4) Armazena dados e redireciona ao dashboard
     localStorage.setItem("usuario", JSON.stringify(usuario));
     window.location.href = "dashboard.html";
   })
   .catch(err => {
     console.error("Erro no login:", err);
-    msgDiv.textContent = err.message;
+    msg.innerHTML = err.message;
   });
 }

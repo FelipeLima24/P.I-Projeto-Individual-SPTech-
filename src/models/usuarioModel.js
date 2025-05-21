@@ -1,4 +1,3 @@
-// src/models/usuario.js
 var database = require("../database/config");
 
 function autenticar(email, senha) {

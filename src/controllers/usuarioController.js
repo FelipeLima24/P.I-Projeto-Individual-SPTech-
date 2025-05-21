@@ -1,21 +1,19 @@
 var usuarioModel = require("../models/usuarioModel");
 
-
 function entrar(req, res) {
-    var email = req.body.emailServer;       // lê o email enviado pelo front
-    var senha = req.body.senhaServer;       // lê a senha enviada pelo front
+    var email = req.body.emailServer;       
+    var senha = req.body.senhaServer;       
 
     // validação 
     if (email == undefined || senha == undefined) {
         res.status(400).send("Seu email e/ou senha estão indefinidos!");
         return;
     }
-
-    // autenticação do banco
+    
     usuarioModel.autenticar(email, senha)
         .then(function(resultado) {
             if (resultado.length > 0) {
-                res.status(200).json(resultado[0]);  // retorna dados do usuário
+                res.status(200).json(resultado[0]);  
             } else {
                 res.status(403).send("Email e/ou senha inválido(s)");
             }
@@ -46,14 +44,11 @@ function cadastrar(req, res) {
             res.status(201).json(resultado);  // 201 Created
         })
         .catch(function(error) {
-            // log detalhado do erro no console do Node.js
             console.error("Erro no cadastro de usuário:", error, error.sqlMessage);
-            // retorna ao cliente a mensagem de erro SQL
             res.status(500).json({ erro: error.sqlMessage });
         });
 }
 
-// exporta as duas funções para uso nas rotas
 module.exports = {
     entrar,
     cadastrar
