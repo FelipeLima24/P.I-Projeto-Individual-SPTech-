@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +8,7 @@
   <!-- linkando css -->
   <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
 
   <!-- cabecalho -->
@@ -17,6 +19,7 @@
       <a href="/login.html"><button>Login</button></a>
       <a href="/cadastro.html"><button>Cadastre-se</button></a>
       <a href="/dashboard.html"><button>Dashboard</button></a>
+      <a href="/protocolo.html"><button>Protocolo</button></a>
     </div>
   </header>
 
@@ -24,20 +27,21 @@
   <div class="titulo">
     <h1>Transformando seu físico com saúde e estratégia.</h1>
     <p>
-      A SmartShape é o seu ponto de partida para uma vida mais saudável e um corpo mais definido.Aqui criamos protocolos personalizados, ou seja dieta e treino 
-      estruturados especificamente para você e seus objetivos! 
+      A SmartShape é o seu ponto de partida para uma vida mais saudável e um corpo mais definido.Aqui criamos protocolos
+      personalizados, ou seja dieta e treino
+      estruturados especificamente para você e seus objetivos!
       sem enrolação e com acompanhamento, mesmo que você esteja começando agora.
     </p>
   </div>
 
- <!-- como funciona -->
+  <!-- como funciona -->
   <div class="section-como">
     <div class="texto">
 
-      <h2>Mas como funciona??</h2> 
+      <h2>Mas como funciona??</h2>
       <p>
-        Para podermos criar um protocolo especializado ao usuário precisamos coletar 
-        algumas informações sobre seu corpo, como altura, peso, objetivo na academia 
+        Para podermos criar um protocolo especializado ao usuário precisamos coletar
+        algumas informações sobre seu corpo, como altura, peso, objetivo na academia
         e é claro o mais importante o BF!
       </p>
     </div>
@@ -46,26 +50,26 @@
     </div>
   </div>
 
-  
+
 
   <!-- bf -->
   <div class="box-bf">
     <h3>O que é BF?</h3>
     <p>
-      BF é uma abreviação de uma palavra em inglês chamada “Body fat” que significa 
-      porcentagem de gordura corporal, ou seja, quantos kgs de gordura você possui no seu 
-      corpo, sabemos que nosso corpo é feito de água, musculos e gordura mas quanto possuimos? 
-      A ciência diz que um corpo saúdavel varia entre 14 e 25% de gordura corporal, abaixo 
-      disso é indicado somente para atletas de alto rendimento e acima disso nos mostra um 
-      alerta de excesso de gordura corporal. Imagine que um indivíduo possui 
-      100kg e 10% de gordura, portanto ele possui 10kg de gordura distribuidos pelo seu corpo. 
-      As imagens abaixo nos mostram diferentes tipos de bf, analise e veja com qual 
+      BF é uma abreviação de uma palavra em inglês chamada “Body fat” que significa
+      porcentagem de gordura corporal, ou seja, quantos kgs de gordura você possui no seu
+      corpo, sabemos que nosso corpo é feito de água, musculos e gordura mas quanto possuimos?
+      A ciência diz que um corpo saúdavel varia entre 14 e 25% de gordura corporal, abaixo
+      disso é indicado somente para atletas de alto rendimento e acima disso nos mostra um
+      alerta de excesso de gordura corporal. Imagine que um indivíduo possui
+      100kg e 10% de gordura, portanto ele possui 10kg de gordura distribuidos pelo seu corpo.
+      As imagens abaixo nos mostram diferentes tipos de bf, analise e veja com qual
       imagem você mais se parece atualmente.
     </p>
   </div>
-  
-    <div class="grid-bf">
-    <img src="../public/assets/imgs/bf.png" alt="Exemplos de BF" />
+
+  <div class="grid-bf">
+    <img src="/assets/imgs/bf.png" alt="Exemplos de BF" />
   </div>
 
   <!-- TMB -->
@@ -73,16 +77,16 @@
     <div class="texto">
       <h3>Taxa Metabólica Basal</h3>
       <p>
-A famosa TMB é a quantidade mínima de calorias que o corpo gasta para manter suas funções 
-vitais em repouso como respiração, batimentos cardíacos, funcionamento do cérebro e regulação 
-da temperatura corporal, portanto, mesmo que você fique deitado o dia inteiro sem se mover, 
-seu corpo ainda usaria energia (calorias) para manter-se vivo, e essa é 
-o gasto medido pela TMB. Para calcular sua TMB coloque seus dados na calculadora ao lado
+        A famosa TMB é a quantidade mínima de calorias que o corpo gasta para manter suas funções
+        vitais em repouso como respiração, batimentos cardíacos, funcionamento do cérebro e regulação
+        da temperatura corporal, portanto, mesmo que você fique deitado o dia inteiro sem se mover,
+        seu corpo ainda usaria energia (calorias) para manter-se vivo, e essa é
+        o gasto medido pela TMB. Para calcular sua TMB coloque seus dados na calculadora ao lado
       </p>
     </div>
     <div class="tituloCalc">
       <h4>Calculadora TMB</h4>
-    
+
       <p id="peso-id">Peso (kg)</p>
       <input id="ipt_peso" placeholder="Ex: 70"> <br> <br>
 
@@ -97,20 +101,21 @@ o gasto medido pela TMB. Para calcular sua TMB coloque seus dados na calculadora
 
       <p id="fator-id">Fator de atividade física</p>
       <input id="ipt_fator" placeholder="1 até 5 (5 é recomendo para atletas de alto rendimento)"> <br> <br>
-      
+
       <button onclick="calcular()">Calcular TMB</button>
-     <!-- Objetivo<input id="ipt_objetivo" placeholder="emagrecer ou massa"> <br> <br>
+      <!-- Objetivo<input id="ipt_objetivo" placeholder="emagrecer ou massa"> <br> <br>
      <!-- Foco <input id="ipt_musculo" placeholder="Peito, costas, pernas..."> <br> <br>  
-     Estilo de treino <input id="ipt_estilo" placeholder="leve, médio ou pesado"> <br> <br> --> 
+     Estilo de treino <input id="ipt_estilo" placeholder="leve, médio ou pesado"> <br> <br> -->
       <!-- <button onclick="protocolo()">Criar protocolo</button> -->
     </div>
-      <div id="msg"></div>
+    <div id="msg"></div>
     </div>
   </section>
 
 
-  
+
 </body>
+
 </html>
 <!-- linkando com api -->
 <script src="/libs/web-data-viz.min.js"></script>

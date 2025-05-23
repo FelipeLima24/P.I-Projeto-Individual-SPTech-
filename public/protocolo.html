@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>Protocolo – SmartShape</title>
   <link rel="stylesheet" href="/css/protocolo.css">
-
-
 </head>
 <body>
 
@@ -44,15 +41,14 @@
       <input id="ipt_musculo" placeholder="Ex: peito"><br><br>
 
       Estilo de treino (leve, médio ou pesado)<br>
-      <input id="ipt_estilo" placeholder="Ex: leve"><br><br>
+      <input id="ipt_estiloTreino" placeholder="Ex: leve"><br><br>
 
       Dias de treino por semana<br>
       <input id="ipt_dias" placeholder="Ex: 3"><br><br>
 
-
-      <input type="hidden" id="ipt_treino"  value="1">
-      <input type="hidden" id="ipt_dieta"   value="1">
-      <input type="hidden" id="ipt_usuario" value="1">
+    
+      <input type="hidden" id="ipt_questionario" value="1">
+      <input type="hidden" id="ipt_usuario"      value="1">
 
       <button onclick="calcular()">Calcular TMB</button>
       <button onclick="protocolo()">Criar protocolo</button>
@@ -62,9 +58,6 @@
     <div id="saida"></div>
   </section>
 
-
+  <script src="/js/protocolo.js"></script>
 </body>
 </html>
-<script src="/js/protocolo.js"></script>
-
-

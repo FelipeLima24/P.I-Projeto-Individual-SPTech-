@@ -40,8 +40,9 @@ function cadastrar(req, res) {
 
     // enviar ao banco
     usuarioModel.cadastrar(nome, email, telefone, cpf, senha)
-        .then(function(resultado) {
-            res.status(201).json(resultado);  // 201 Created
+        .then(
+            function (resultado) {
+            res.jason(resultado);  
         })
         .catch(function(error) {
             console.error("Erro no cadastro de usuário:", error, error.sqlMessage);

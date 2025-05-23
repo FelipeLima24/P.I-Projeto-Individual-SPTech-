@@ -25,19 +25,25 @@ dtInicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE protocolo (
 fkQuestionario INT,
 fkUsuario INT,
-altura VARCHAR(45),
-peso VARCHAR(45),
-sexo VARCHAR(45),
+altura FLOAT,
+peso FLOAT,
+sexo CHAR(1),
 idade INT,
 estiloTreino VARCHAR(45),
 exercicios VARCHAR(45),
 calorias FLOAT,
 carboidratos FLOAT,
 proteinas FLOAT,
-GORDURAS FLOAT,
+gorduras FLOAT,
+dias INT,
+CONSTRAINT chkSexoUsuario	
+CHECK (status IN ('m', 'f', 'F', 'M')),
 PRIMARY KEY (fkQuestionario, fkUsuario),
-FOREIGN KEY fkQuestionario REFERENCES questionario(idQuestionario),
-FOREIGN KEY fkUsuario REFERENCES usuarioCadastro(idCadastro)
+FOREIGN KEY (fkQuestionario)
+REFERENCES questionario(idQuestionario),
+FOREIGN KEY (fkUsuario)
+REFERENCES usuarioCadastro(idUsuario)
 );
+
 
 select * from protocolo;

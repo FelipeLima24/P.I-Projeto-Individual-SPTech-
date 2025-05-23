@@ -1,0 +1,48 @@
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* BODY */
+body { font-family: 'Helvetica Neue', sans-serif; background:#f5f5f5; color:#222; }
+
+/* CABEÇALHO */
+header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 40px; background:#000;
+}
+.logo { color:#0f0; font-size:2rem; font-weight:bold; }
+header nav button {
+  background:#0f0; color:#000; border:none; padding:8px 16px;
+  margin-left:8px; border-radius:4px; font-weight:bold; cursor:pointer;
+}
+header nav button:hover { opacity:0.9; }
+
+/* CONTAINER */
+.simulador {
+  max-width:800px; margin:40px auto; background:#fff;
+  padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.simulador h1 { font-size:1.75rem; margin-bottom:12px; }
+.simulador p { color:#555; margin-bottom:20px; }
+
+/* FORM */
+.form-sim input {
+  width:100%; padding:8px; margin:6px 0; border:1px solid #ccc;
+  border-radius:4px; background:#f9f9f9;
+}
+.form-sim button {
+  width:48%; margin:10px 1%; padding:10px; background:#0f0;
+  border:none; color:#000; font-weight:bold; border-radius:6px; cursor:pointer;
+}
+.form-sim button:hover { opacity:0.9; }
+
+/* MENSAGENS */
+#msg { margin:12px 0; color:#c00; font-weight:bold; text-align:center; }
+.erro { font-weight:bold; }
+
+/* SAÍDA */
+#saida {
+  margin-top:24px; padding:16px; background:#f0f0f0;
+  border-radius:4px; color:#333;
+}
+#saida h3 { margin-bottom:8px; }
+#saida p { margin-bottom:6px; }
