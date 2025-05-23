@@ -1,16 +1,16 @@
 
-* {                                /* Aplica a todos os elementos */
-  margin: 0;                       /* Remove margens padrão */
-  padding: 0;                      /* Remove preenchimentos padrão */
-  box-sizing: border-box;         /* Inclui bordas e padding na largura/altura do elemento */
+* {                                
+  margin: 0;                    
+  padding: 0;                      
+  box-sizing: border-box;         
 }
 
-/* base do site */
+
 body {
-  font-family: 'Helvetica Neue', sans-serif; /* Define a fonte principal da página */
+  font-family: 'Helvetica Neue', sans-serif; 
   background-color: #ffffff;                 
   color: #000000;                               
-  line-height: 1.6;                          /* Espaçamento entre linhas para melhor leitura */
+  line-height: 1.6;                          
 }
 
 /* cabecalho */
@@ -33,8 +33,8 @@ header div button {
   color: #000;                              
   font-weight: bold;                        
   border: none;                             
-  padding: 10px 20px;                       /* Espaço interno do botão */
-  border-radius: 6px;                       /* Cantos arredondados */
+  padding: 10px 20px;                       
+  border-radius: 6px;                       
   margin-left: 10px;                        
   cursor: pointer;                          
 }
@@ -43,24 +43,24 @@ header div button:hover {
  opacity: 0.85;                         /*   transparencia */
 }
 
-/* título e paragrafo */
+
 .titulo {
-  max-width: 1000px;                        /* Limita a largura máxima */
-  margin: 60px auto 20px;                   /* Centraliza e dá espaço acima (60px) e abaixo (20px) */
-  text-align: center;                       /* Centraliza o texto */
-  padding: 0 20px;                          /* Espaço lateral */
+  max-width: 1000px;                        
+  margin: 60px auto 20px;                   
+  text-align: center;                     
+  padding: 0 20px;                          
 }
 
 .titulo h1 {
   font-size: 2rem;                          
-  margin-bottom: 20px;                      /* Espaço abaixo do título */
+  margin-bottom: 20px;                      
   font-weight: bold;                        
 }
 
 .titulo p {
   font-size: 1.1rem;                        
   color: #000000;                              
-  line-height: 1.8;                         /* Espaçamento*/
+  line-height: 1.8;                         
 }
 
 /* como funciona */
@@ -103,49 +103,49 @@ header div button:hover {
 /* bf imagens */
 .grid-bf {
   max-width: 1000px;                        /* Largura máxima da grade */
-  margin: 5px auto;                        /* Espaçamento vertical e centraliza */
+  margin: 5px auto;                      
   padding: 0 20px;                          /* Espaço lateral */
-  text-align: center;                       /* Centraliza o conteúdo */
+  text-align: center;                      
 }
 
 .grid-bf img {
-  max-width: 100%;                          /* Imagem preenche o container */
-  border-radius: 8px;                       /* Cantos arredondados */
+  max-width: 100%;                        
+  border-radius: 8px;                       
 }
 
 /* bf explicacao */
 .box-bf {
-  max-width: 1000px;                        /* Largura máxima da caixa */
-  margin: 40px auto;                        /* Espaço vertical e centraliza */
+  max-width: 1000px;                        
+  margin: 40px auto;                        
   background: #fff;                         
-  padding: 30px;                            /* Espaço interno */
-  border-radius: 10px;                      /* Cantos arredondados */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);     /* Sombra leve para destacar a caixa */
+  padding: 30px;                            
+  border-radius: 10px;                      
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);    
 }
 
 .box-bf h3 {
   display: flex;
   justify-content: center; 
-  font-size: 1.5rem;                        /* Tamanho do título */
+  font-size: 1.5rem;                        
   margin-bottom: 16px;                      /* Espaço abaixo do título */
   
 
 }
 
 .box-bf p {
-  font-size: 1rem;                          /* Tamanho de texto */
-  color: #000000;                              /* Cor do texto suave */
-  line-height: 1.7;                         /* Espaçamento entre linhas */
+  font-size: 1rem;                          
+  color: #000000;                              
+  line-height: 1.7;                         
   
 }
 
 /* tmb  */
 .section-tmb {
   display: flex;                            
-  max-width: 1000px;                        /* Largura máxima */
-  margin: 60px auto;                        /* Espaço vertical e centraliza */
-  gap: 40px;                                /* Espaço entre texto e formulário */
-  padding: 0 20px;                          /* Espaçamento lateral */
+  max-width: 1000px;                       
+  margin: 60px auto;                        
+  gap: 40px;                                
+  padding: 0 20px;                          
   display:flex                 
   
 }
@@ -172,28 +172,28 @@ header div button:hover {
   background: #000;                         
   color: #fff;                              
   padding: 20px;                            /* Espaço interno */
-  border-radius: 10px;                      /* Cantos arredondados */
+  border-radius: 10px;                      
 }
 
 .section-tmb .tituloCalc h4 {
-  font-size: 1.2rem;                        /* Título da seção */
-  margin-bottom: 16px;                      /* Espaço abaixo do título */
+  font-size: 1.2rem;                        
+  margin-bottom: 16px;                      
   text-align: center;                       
 }
 
 
 .section-tmb .tituloCalc input {
   width: 100%;                              
-  padding: 10px;                            /* Espaço interno */
-  margin-top: 6px;                          /* Espaço acima do campo */
+  padding: 10px;                            
+  margin-top: 6px;                          
   border: none;                             
-  border-radius: 6px;                       /* Cantos arredondados */
+  border-radius: 6px;                       
 }
 
 .section-tmb .tituloCalc button {
   width: 100%;                              
-  margin-top: 20px;                         /* Espaço acima do botão */
-  padding: 12px;                            /* Espaço interno do botão */
+  margin-top: 20px;                        
+  padding: 12px;                           
   background: #0f0;                         
   border: none;                             
   color: #000;                              
@@ -202,7 +202,7 @@ header div button:hover {
   cursor: pointer;                          
 }
 
-/* efeito botao */
+
 .section-tmb .tituloCalc button:hover {
   opacity: 0.9;                             
 }

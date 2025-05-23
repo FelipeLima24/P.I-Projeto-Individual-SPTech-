@@ -5,7 +5,7 @@
 }
 
 
-/* CABEÇALHO */
+/* cabecalho */
 header {
   width: 100%;
   display: flex;
@@ -33,7 +33,7 @@ header div button:hover {
   opacity: 0.85;
 }
 
-/* body  */
+
 body {
   font-family: 'Helvetica Neue', sans-serif;
   background: #ffffff;
@@ -49,7 +49,7 @@ h2 {
 }
 
 
-/* input */
+
 input {
   width: 100%;
   padding: 10px;
@@ -58,7 +58,7 @@ input {
   border-radius: 4px;
 }
 
-/* botao */
+
 button {
   width: 100%;
   padding: 12px;
@@ -71,7 +71,7 @@ button {
   font-weight: bold;
 }
 
-/* botao */
+
 button {
   background: #0f0;
   color: #000;
@@ -82,7 +82,7 @@ button {
   cursor: pointer;
 }
 
-/* transparencia botao */
+
 button:hover {
   opacity: 0.7;
 }

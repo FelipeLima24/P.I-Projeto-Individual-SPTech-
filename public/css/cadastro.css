@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-/* CABEÇALHO */
+/* cabecalho */
 header {
   width: 100%;
   display: flex;
@@ -51,7 +51,7 @@ h2 {
   text-align: center;                       
 }
 
-/* input */
+
 input {
   width: 100%;
   padding: 10px;
@@ -60,7 +60,7 @@ input {
   border-radius: 4px;
 }
 
-/* botao  */
+
 button {
   background: #0f0;
   color: #000;
@@ -71,18 +71,16 @@ button {
   cursor: pointer;
 }
 
-/* transparencia botao */
+
 button:hover {
-  opacity: 0.7;                               /* leve transparência ao passar o mouse */
+  opacity: 0.7;                            
 }
-
-
 /* div  */
 #msg {
-  margin-top: 16px;                           /* espaço acima da mensagem */
-  color: red;                                 /* cor vermelha para erros */
-  font-weight: bold;                          /* destaque no texto */
-  text-align: center;                         /* centraliza a mensagem */
+  margin-top: 16px;
+  color: red;                                 
+  font-weight: bold;                          
+  text-align: center;                        
 }
 
 
