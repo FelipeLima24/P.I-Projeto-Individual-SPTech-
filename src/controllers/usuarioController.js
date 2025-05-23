@@ -38,7 +38,7 @@ function cadastrar(req, res) {
         return;
     }
 
-    // enviar ao banco
+    
     usuarioModel.cadastrar(nome, email, telefone, cpf, senha)
         .then(
             function (resultado) {
