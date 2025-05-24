@@ -1,7 +1,13 @@
 var protocoloModel = require("../models/protocoloModel");
-
+var questionarioModel = require("../models/questionarioModel");
 function cadastrar(req, res) {
     console.log(">>>> PROTOCOLO CONTROLLER: cadastrar(). Body:", req.body);
+
+    questionarioModel.criarQuestionario()
+    .then(result => {
+      var idQ = result.insertId;
+      console.log(">> Novo questionário criado com idQuestionario =", idQ);
+
 
     var fkQuestionario = req.body.fkQuestionarioServer;
     var fkUsuario = req.body.fkUsuarioServer;
@@ -59,18 +65,7 @@ function cadastrar(req, res) {
             console.error(">>>> PROTOCOLO CONTROLLER: erro ao cadastrar:", error);
             res.status(500).json({ erro: error.sqlMessage });
         });
-}
-
-function listar(req, res) {
-    console.log(">>>> PROTOCOLO CONTROLLER: listar() chamado");
-    protocoloModel.listarProtocolos()
-        .then(function (resultado) {
-            res.status(200).json(resultado);
-        })
-        .catch(function (error) {
-            console.error(">>>> PROTOCOLO CONTROLLER: erro ao listar:", error);
-            res.status(500).json(error.sqlMessage);
-        });
+})
 }
 
 function buscar(req, res) {
@@ -105,6 +100,5 @@ function buscar(req, res) {
 
 module.exports = {
     cadastrar,
-    listar,
     buscar
 };

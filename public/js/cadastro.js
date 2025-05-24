@@ -16,7 +16,7 @@ function cadastrar() {
     msg.innerHTML = `Por favor insira todos os campos!`
   }
 
-  fetch("http://localhost:3333/usuarioRoute/cadastrar", {
+  fetch("http://localhost:3333/cadastroRoute/cadastrar", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -28,18 +28,20 @@ function cadastrar() {
     })
   })
 
-    .then(res => {
-      if (email == '' || nome == '' || telefone == '' || senha == '' || cpf == '') {
-        msg.innerHTML = `Por favor insira todos os campos!`
-        return res.json();
-      }
-      if (!res.ok) throw new Error("Falha no cadastro");
-    })
-    .then(json => {
-      msg.innerHTML = "Cadastro realizado com sucesso!";
-    })
-    .catch(err => {
-      console.error("Erro na resposta do servidor:", err);
-      // msg.innerHTML = "Erro ao cadastrar.";
-    });
+     .then(res => {
+    if (!res.ok) {
+      throw new Error("Falha no cadastro");
+    }
+    return res.json();         
+  })
+  .then(json => {
+    msg.style.color = 'green';
+    msg.innerHTML = ` Cadastro realizado com sucesso!`;
+    window.location.href = 'login.html';
+  })
+  .catch(err => {
+    console.error("Erro na resposta do servidor:", err);
+    msg.style.color = 'red';
+    msg.innerHTML = ` Erro ao cadastrar. Tente novamente.`;
+  });
 }

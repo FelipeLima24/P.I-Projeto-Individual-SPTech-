@@ -21,6 +21,9 @@ descricao VARCHAR(250),
 dtInicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+
+select * from questionario;
+
 -- Tabela protocolo associativa
 CREATE TABLE protocolo (
 fkQuestionario INT,
@@ -37,7 +40,7 @@ proteinas FLOAT,
 gorduras FLOAT,
 dias INT,
 CONSTRAINT chkSexoUsuario	
-CHECK (status IN ('m', 'f', 'F', 'M')),
+CHECK (sexo IN ('m', 'f', 'F', 'M')),
 PRIMARY KEY (fkQuestionario, fkUsuario),
 FOREIGN KEY (fkQuestionario)
 REFERENCES questionario(idQuestionario),

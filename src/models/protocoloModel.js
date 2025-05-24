@@ -37,29 +37,10 @@ function listarProtocolos() {
 }
 
 
-// function buscarProtocolo(fkQuestionario, fkUsuario, altura, peso, 
-//     idade, sexo, estiloTreino, exercicios, calorias, carboidratos, proteinas, gorduras) {
-//     var instrucaoSql = `
-//         SELECT * FROM protocolo
-//     WHERE fkQuestionario = ${fkQuestionario}
-//     AND fkUsuario      = ${fkUsuario}
-//     AND altura         = ${altura}
-//     AND peso           = ${peso}
-//     AND idade          = ${idade}
-//     AND sexo           = '${sexo}'
-//     AND estiloTreino   = '${estiloTreino}'
-//     AND exercicios     = '${exercicios}'
-//     AND calorias       = ${calorias}
-//     AND carboidratos   = ${carboidratos}
-//     AND proteinas      = ${proteinas}
-//     AND gorduras     = ${gorduras};
-//     `;
-//     console.log("`>>>> PROTOCOLO MODEL: executando SQL:`\n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-//     }
+
 
 module.exports = {
     cadastrarProtocolo,
     listarProtocolos
-    // buscarProtocolo
+    
 };
