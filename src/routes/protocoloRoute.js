@@ -6,8 +6,4 @@ router.post("/cadastrarProtocolo", (req, res) => protocoloController.cadastrar(r
 
 router.get("/listar", (req, res) => protocoloController.listar(req, res));
 
-router.get("/buscar/:idTreino/:idDieta/:fkCliente",
-    (req, res) => protocoloController.buscar(req, res)
-);
-
 module.exports = router;

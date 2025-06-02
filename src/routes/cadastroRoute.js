@@ -1,12 +1,13 @@
 var express = require("express");              
 var router  = express.Router();                  
 
-var cadastroController = require("../controllers/cadastroController");
+var varController = require("../controllers/cadastroController");
 
-//  registro cadastro
+//  registro usuario
 router.post("/cadastrar", function(req, res) {
-    cadastroController.cadastrar(req, res);
+    varController.cadastrar(req, res);
 });
+
 
 
 module.exports = router;                         
