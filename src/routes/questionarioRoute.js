@@ -1,13 +1,10 @@
-var express                  = require("express");
-var router                   = express.Router();
-var questionarioController = require("../controllers/questionarioController.js");
+var express = require("express");
+var router  = express.Router();
+var questionarioController = require("../controllers/questionarioController");
 
-router.post("/criar", function(req, res) {
-    questionarioController.criar(req, res);
-});
+// POST /questionarios/criar
+router.post("/criar", questionarioController.criar);
 
-router.get("/listar", function(req, res) {
-    questionarioController.listar(req, res);
-});
+
 
 module.exports = router;
