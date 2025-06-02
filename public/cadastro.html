@@ -13,29 +13,34 @@
 
   <header>
     <div class="logo">SmartShape</div>
-    <div>
-      <button onclick="location.href='index.html'">Home</button>
-      <button onclick="location.href='login.html'">Login</button>
-      <button onclick="location.href='cadastro.html'">Tabela nutricional</button>
+    <div class="botaoCabecalho">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
     </div>
   </header>
 
-  <div class="cadastro-form">
+  <div class="cadastro">
     <h2>Cadastro</h2>
 
-    Insira seu nome <input id="ipt_nome" type="text"> <br><br>
-    Insira seu email <input id="ipt_email" type="email"> <br><br>
-    Insira seu telefone <input id="ipt_telefone" type="tel"> <br><br>
-    Insira seu CPF <input id="ipt_cpf" type="text"> <br><br>
-    Insira sua senha <input id="ipt_senha" type="password"> <br><br>
 
+   <p> Insira seu nome </p> <input id="ipt_nome" type="text" placeholder="Insira seu nome"> <br><br>
+
+   <p> Insira seu email </p> <input id="ipt_email" type="email"> <br><br>
+
+   <p> Insira seu telefone </p> <input id="ipt_telefone" type="tel"> <br><br>
+
+   <p> Insira seu CPF </p> <input id="ipt_cpf" type="text"> <br><br>
+
+   <p> Insira sua senha </p> <input id="ipt_senha" type="password"> <br><br>
+
+ </div>
     <div class="botaoCadastro">
-      <button onclick="cadastrar()">Cadastrar Perfil</button> <br> <br>
-      <div id="msg"></div>
+      <button onclick="cadastrar()">Cadastrar Perfil</button>
     </div>
+    <div id="msg"></div>
   </div>
 
-  <p> <br> Já está cadastrado? <a href="login.html">Faça login</a></p>
+  <p>Já está cadastrado? <a href="login.html">Faça login</a></p>
 
   <!-- linkando com js -->
   <script src="js/cadastro.js"></script>

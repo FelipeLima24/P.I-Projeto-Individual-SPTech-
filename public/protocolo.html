@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Protocolo – SmartShape</title>
   <link rel="stylesheet" href="/css/protocolo.css">
 </head>
+
 <body>
 
-  <header>
-    <section class="logo">SmartShape</section>
-    <nav>
-      <a href="/"><button>Home</button></a>
-      <a href="/cadastro.html"><button>Cadastre-se</button></a>
-      <a href="/login.html"><button>Login</button></a>
-    </nav>
-  </header>
-
-  <section class="simulador">
+  <div class="cabecalho">
+    <div class="logo">SmartShape</div>
+    <div>
+      <a href="/index.html"><button>Home</button></a>
+      <a href="/dashboard.html"><button>Dashboard</button></a>
+    </div>
+  </div>
+  <div class="simulador">
     <h1>Protocolo</h1>
     <p>Preencha seus dados para calcular sua TMB e gerar o seu protocolo!</p>
 
-    <div class="form-sim">
-      Peso (kg)<br>
+    <div class="dadosCorporais">
+      <b> Peso (kg)<br> </b>
       <input id="ipt_peso" placeholder="Ex: 70"><br><br>
 
-      Altura (cm)<br>
+      <b> Altura (cm)<br> </b>
       <input id="ipt_altura" placeholder="Ex: 170"><br><br>
 
-      Idade<br>
+      <b> Idade<br> </b>
       <input id="ipt_idade" placeholder="Ex: 25"><br><br>
 
-      Sexo (M/F)<br>
+      <b> Sexo (M/F)<br> </b>
       <input id="ipt_sexo" placeholder="M ou F"><br><br>
 
-      Objetivo (emagrecer ou massa)<br>
+      <b> Objetivo (emagrecer ou massa) <br> </b>
       <input id="ipt_objetivo" placeholder="emagrecer / massa"><br><br>
 
-      Músculo foco (peito, costas, pernas, braços, ombros, abdômen)<br>
+      <b> Músculo foco (peito, costas, pernas, braços, ombros, abdômen) <br> </b>
       <input id="ipt_musculo" placeholder="Ex: peito"><br><br>
 
-      Estilo de treino (leve, médio ou pesado)<br>
+      <b> Estilo de treino (leve, médio ou pesado) <br> </b>
       <input id="ipt_estiloTreino" placeholder="Ex: leve"><br><br>
 
-      Dias de treino por semana<br>
+      <b> Dias de treino por semana <br> </b>
       <input id="ipt_dias" placeholder="Ex: 3"><br><br>
 
-    
-      <input type="hidden" id="ipt_questionario" value="1">
-      <input type="hidden" id="ipt_usuario"      value="1">
 
-      <button onclick="calcular()">Calcular TMB</button>
-      <button onclick="protocolo()">Criar protocolo</button>
+      <input type="hidden" id="ipt_questionario" value="1">
+      <input type="hidden" id="ipt_usuario" value="1">
+
+
+      <div class="botaoProtocolo">
+        <button onclick="calcular()">Calcular TMB</button>
+        <button onclick="protocolo()">Criar protocolo</button>
+      </div>
     </div>
 
     <div id="msg"></div>
     <div id="saida"></div>
-  </section>
+  </div>
 
   <script src="/js/protocolo.js"></script>
 </body>
+
 </html>
