@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 /* cabecalho */
 header {
   width: 100%;
@@ -14,26 +13,36 @@ header {
   padding: 20px 40px;
   background-color: #000;
 }
+
 .logo {
   font-size: 2rem;
   color: #0f0;
   font-weight: bold;
 }
-header div button {
+
+
+.botaoCabecalho a {
   background-color: #0f0;
   color: #000;
   font-weight: bold;
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
-  margin-left: 10px;
+  margin-right: 10px;
   cursor: pointer;
+  font-size: 13px;
+  text-decoration: none;
+box-shadow: #000;
 }
-header div button:hover {
+
+.botaoCabecalho a:hover {
   opacity: 0.85;
+  
 }
 
 
+
+/* body  */
 body {
   font-family: 'Helvetica Neue', sans-serif;
   background: #ffffff;
@@ -45,9 +54,12 @@ body {
 
 /* titulo */
 h2 {
+  margin-top: 60px;
+  /* afasta do topo */
   margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
 }
-
 
 
 input {
@@ -59,37 +71,37 @@ input {
 }
 
 
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  background: #0f0;
-  color: #000;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-
-button {
-  background: #0f0;
-  color: #000;
-  border: none;
-  padding: 8px 12px;
-  margin-left: 8px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-
 button:hover {
   opacity: 0.7;
+
 }
 
-/* div */
+/* div  */
 #msg {
   margin-top: 16px;
   color: red;
   font-weight: bold;
+  text-align: center;
+}
+
+.botaoEntrar button{
+  background-color: #0f0;
+  color: #000;
+  border-style: none;
+  border-radius: 10px;
+  width: 18.3vw;
+  height: 6vh;
+  font-weight: bold;
+  
+}
+
+.botaoEntrar{
+  display: flex;
+  justify-content: center;
+}
+
+.login p {
+display: flex;
+justify-content: center;
+font-weight: bold;
 }
