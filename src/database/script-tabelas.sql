@@ -14,13 +14,13 @@ CREATE TABLE usuarioCadastro (
 
 select * from usuarioCadastro;
 
+
 -- Tabela questionário
 CREATE TABLE questionario ( 
 idQuestionario INT PRIMARY KEY AUTO_INCREMENT,
 descricao VARCHAR(250),
 dtInicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
 
 select * from questionario;
 
@@ -30,8 +30,10 @@ fkQuestionario INT,
 fkUsuario INT,
 altura FLOAT,
 peso FLOAT,
-sexo CHAR(1),
 idade INT,
+sexo CHAR(1),
+objetivo VARCHAR(45),
+musculoAlvo VARCHAR(45),
 estiloTreino VARCHAR(45),
 exercicios VARCHAR(45),
 calorias FLOAT,
