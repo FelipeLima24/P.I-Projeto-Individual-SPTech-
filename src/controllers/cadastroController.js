@@ -13,7 +13,7 @@ function entrar(req, res) {
     cadastroModel.autenticar(email, senha)
         .then(function(resultado) {
             if (resultado.length > 0) {
-                res.status(200).json(resultado[0]);  
+                  res.status(200).json(resultado);  
             } else {
                 res.status(403).send("Email e/ou senha inválido(s)");
             }
@@ -42,7 +42,7 @@ function cadastrar(req, res) {
     cadastroModel.cadastrar(nome, email, telefone, cpf, senha)
         .then(
             function (resultado) {
-             res.status(201).json(resultado); 
+              res.status(201).json(resultado);
         })
         .catch(function(error) {
             console.error("Erro no cadastro de usuário:", error, error.sqlMessage);
