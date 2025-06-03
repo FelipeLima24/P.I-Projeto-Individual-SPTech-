@@ -44,7 +44,6 @@ function listarProtocolos() {
   return database.executar(sql);
 }
 
-<<<<<<< HEAD
 function contarEmagrecer() {
     var instrucao = `
         SELECT COUNT(*) AS emagrecer
@@ -80,9 +79,4 @@ module.exports = {
   contarEmagrecer,
   contarMassa,
   contarPeso
-=======
-module.exports = {
-  cadastrarProtocolo,
-  listarProtocolos
->>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
 };

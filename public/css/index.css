@@ -77,11 +77,7 @@ header div button:hover {
 
 
 .como .texto {
-<<<<<<< HEAD
   flex: 1;                                  
-=======
-  flex: 1;                                  /* Ocupa metade da largura disponível */
->>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
 }
 
 .como .texto h2 {
@@ -92,16 +88,11 @@ header div button:hover {
 }
 
 .como .texto p {
-<<<<<<< HEAD
   font-size: 1rem;                         
-=======
-  font-size: 1rem;                          /* Tamanho padrão de parágrafo */
->>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
   color: #000000;                              
 }
 
 .como .imagem {
-<<<<<<< HEAD
   flex: 1;                                  
   text-align: center;                       
 }
@@ -109,24 +100,11 @@ header div button:hover {
 .como .imagem img {
   max-width: 100%;                         
   border-radius: 12px;                      
-=======
-  flex: 1;                                  /* Ocupa metade da largura disponível */
-  text-align: center;                       /* Centraliza a imagem */
-}
-
-.como .imagem img {
-  max-width: 100%;                          /* Garante que a imagem não ultrapasse o container */
-  border-radius: 12px;                      /* Cantos arredondados na imagem */
->>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
 }
 
 /* bf imagens */
 .bfImg {
-<<<<<<< HEAD
   max-width: 1000px;                        
-=======
-  max-width: 1000px;                        /* Largura máxima da grade */
->>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
   margin: 5px auto;                      
   padding: 0 20px;                          
   text-align: center;                      
