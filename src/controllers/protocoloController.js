@@ -83,9 +83,52 @@ function listar(req, res) {
       console.error(">>>> PROTOCOLO CONTROLLER: erro ao listar:", error.sqlMessage);
       res.status(500).json({ erro: error.sqlMessage });
     });
+<<<<<<< HEAD
+}
+
+function contarEmagrecer(req, res) {
+    protocoloModel.contarEmagrecer()
+        .then((resultado) => {
+            res.status(200).json(resultado[0]); 
+        })
+        .catch((error) => {
+            console.error(">>>> ERRO:", error.sqlMessage);
+            res.status(500).json({ erro: error.sqlMessage });
+        });
+}
+
+function contarMassa(req, res) {
+    protocoloModel.contarMassa()
+        .then((resultado) => {
+            res.status(200).json(resultado[0]); 
+        })
+        .catch((error) => {
+            console.error(">>>> ERRO:", error.sqlMessage);
+            res.status(500).json({ erro: error.sqlMessage });
+        });
+}
+
+function contarPeso(req, res) {
+    protocoloModel.contarPeso()
+        .then((resultado) => {
+            res.status(200).json(resultado[0]); 
+        })
+        .catch((error) => {
+            console.error(">>>> ERRO:", error.sqlMessage);
+            res.status(500).json({ erro: error.sqlMessage });
+        });
+=======
+>>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
 }
 
 module.exports = {
   cadastrar,
+<<<<<<< HEAD
+  listar,
+  contarEmagrecer,
+  contarMassa,
+  contarPeso
+=======
   listar
+>>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
 };

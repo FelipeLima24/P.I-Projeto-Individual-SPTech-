@@ -44,7 +44,45 @@ function listarProtocolos() {
   return database.executar(sql);
 }
 
+<<<<<<< HEAD
+function contarEmagrecer() {
+    var instrucao = `
+        SELECT COUNT(*) AS emagrecer
+        FROM protocolo
+        WHERE objetivo = 'emagrecer';
+    `;
+    return database.executar(instrucao);
+}
+
+function contarMassa() {
+    var instrucao = `
+        SELECT COUNT(*) AS massa
+        FROM protocolo
+        WHERE objetivo = 'massa';
+    `;
+    return database.executar(instrucao);
+}
+
+function contarPeso() {
+    var instrucao = `
+        SELECT 
+            fkUsuario,
+            ROUND(AVG(peso), 1) AS pesoMedio
+        FROM protocolo
+        GROUP BY fkUsuario;
+    `;
+    return database.executar(instrucao);
+}
+
+module.exports = {
+  cadastrarProtocolo,
+  listarProtocolos,
+  contarEmagrecer,
+  contarMassa,
+  contarPeso
+=======
 module.exports = {
   cadastrarProtocolo,
   listarProtocolos
+>>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
 };
