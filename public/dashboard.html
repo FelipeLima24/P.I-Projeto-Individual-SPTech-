@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartShape Dashboards</title>
+
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">SmartShape</div>
+    <div class="botaoCabecalho">
+      <a href="index.html">Home</a>
+      <a href="protocolo.html">Protocolo</a>
+    </div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi1">
+      <h3>Peso médio dos usuários</h3>
+      <p><span id="qtd_peso"></span></p>
+    </div>
+    <div class="kpi2">
+      <h3>Quantidade de pessoas que querem emagrecer</h3>
+      <p><span id="qtd_emagrecer"></span></p>
+    </div>
+    <div class="kpi3">
+      <h3>Quantidade de pessoas que querem ganhar massa</h3>
+      <p><span id="qtd_massa"></span></p>
+    </div>
+  </div>
+
+  <div class="grafico">
+    <canvas id="musculoChart"></canvas>
+  </div>
+
+  <script>
+
+    fetch("/protocoloRoute/contar-emagrecer")
+      .then(res => res.json())
+      .then(dado => {
+        document.getElementById("qtd_emagrecer").innerHTML = dado.emagrecer;
+      })
+      .catch(erro => {
+        console.error("Erro ao buscar dados:", erro);
+        document.getElementById("qtd_emagrecer").innerHTML = "Erro ao carregar";
+      });
+
+      
+       fetch("/protocoloRoute/contar-massa")
+      .then(res => res.json())
+      .then(dado => {
+        document.getElementById("qtd_massa").innerHTML = dado.massa;
+      })
+      .catch(erro => {
+        console.error("Erro ao buscar dados:", erro);
+        document.getElementById("qtd_massa").innerHTML = "Erro ao carregar";
+      });
+
+      
+       fetch("/protocoloRoute/contar-peso")
+      .then(res => res.json())
+      .then(dado => {
+         document.getElementById("qtd_peso").innerHTML = dado.pesoMedio;
+      })
+      .catch(erro => {
+        console.error("Erro ao buscar dados:", erro);
+        document.getElementById("qtd_peso").innerHTML = "Erro ao carregar";
+      });
+
+    
+
+
+    let labels = [];
+
+    let dados = {
+      labels: labels,
+      datasets: [{
+        label: 'Quantidade de usuários',
+        data: [],
+
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.6)',   // peito
+          'rgba(255, 99, 132, 0.6)',   // costas
+          'rgba(255, 205, 86, 0.6)',   // pernas
+          'rgba(54, 162, 235, 0.6)',   // braços
+          'rgba(153, 102, 255, 0.6)',  // ombros
+          'rgba(255, 159, 64, 0.6)'    // abdômen
+        ],
+
+
+      }]
+    };
+
+    const mokados = [
+      { musculo: 'peito', quantidade: 30 },
+      { musculo: 'costas', quantidade: 20 },
+      { musculo: 'pernas', quantidade: 15 },
+      { musculo: 'braços', quantidade: 10 },
+      { musculo: 'ombros', quantidade: 35 },
+      { musculo: 'abdômen', quantidade: 25 }
+    ];
+
+    for (let i = 0; i < mokados.length; i++) {
+      let registro = mokados[i];
+      labels.push(registro.musculo);
+      dados.datasets[0].data.push(registro.quantidade);
+    }
+
+    let grafico = document.getElementById('musculoChart').getContext('2d');
+    new Chart(grafico, {
+      type: 'bar',
+      data: dados,
+      options: {
+        scales: {
+          x: {
+            title: {
+              text: 'Músculos'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              text: 'Quantidade de usuários'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
