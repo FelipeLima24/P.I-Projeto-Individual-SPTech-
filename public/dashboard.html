@@ -69,7 +69,7 @@
        fetch("/protocoloRoute/contar-peso")
       .then(res => res.json())
       .then(dado => {
-         document.getElementById("qtd_peso").innerHTML = dado.pesoMedio;
+         document.getElementById("qtd_peso").innerHTML = dado.pesoMedio + " kg";
       })
       .catch(erro => {
         console.error("Erro ao buscar dados:", erro);

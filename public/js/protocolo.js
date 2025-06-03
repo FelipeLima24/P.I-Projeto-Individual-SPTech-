@@ -8,8 +8,10 @@ function calcular() {
   var peso = +document.getElementById('ipt_peso').value;
   var idade = +document.getElementById('ipt_idade').value;
   var sexo = document.getElementById('ipt_sexo').value.toLowerCase();
+  var objetivo = document.getElementById('ipt_objetivo').value.toLowerCase();
   var estiloTreino = document.getElementById('ipt_estiloTreino').value.toLowerCase();
   var dias = +document.getElementById('ipt_dias').value;
+  var musculo = document.getElementById('ipt_musculo').value.toLowerCase();
   console.log("peso", peso);
 
   // cálculo da TMB
@@ -29,14 +31,15 @@ function protocolo() {
   var texto = msg.innerHTML;
   var saida = document.getElementById('saida');
 
-  var fkQuestionario = +document.getElementById('ipt_questionario').value;
-  var fkUsuario = +document.getElementById('ipt_usuario').value;
-  var altura = +document.getElementById('ipt_altura').value;
-  var peso = +document.getElementById('ipt_peso').value;
-  var idade = +document.getElementById('ipt_idade').value;
+  var fkQuestionario = document.getElementById('ipt_questionario').value;
+  var fkUsuario = document.getElementById('ipt_usuario').value;
+  var altura = document.getElementById('ipt_altura').value;
+  var peso = document.getElementById('ipt_peso').value;
+  var idade = document.getElementById('ipt_idade').value;
   var sexo = document.getElementById('ipt_sexo').value.toLowerCase();
+  var objetivo = document.getElementById('ipt_objetivo').value.toLowerCase();
   var estiloTreino = document.getElementById('ipt_estiloTreino').value.toLowerCase();
-  var dias = +document.getElementById('ipt_dias').value;
+  var dias = document.getElementById('ipt_dias').value;
   var musculo = document.getElementById('ipt_musculo').value.toLowerCase();
 
   if (texto.indexOf('kcal') < 0) {
@@ -45,13 +48,22 @@ function protocolo() {
   }
 
   // macronutrientes
-var calorias     = +(valorTMB * 1.2).toFixed(0);
-var proteinas    = +(peso * 2).toFixed(0);
-var carboidratos = +((calorias * 0.5) / 4).toFixed(0);
-var gorduras     = +((calorias * 0.25) / 9).toFixed(0);
+  var calorias = Number(valorTMB * 1.2).toFixed(0);
+  var proteinas = Number(peso * 2).toFixed(0);
+  var carboidratos = Number((calorias * 0.5) / 4).toFixed(0);
+  var gorduras = Number((calorias * 0.25) / 9).toFixed(0);
+
+
+
+  if (objetivo == 'emagrecer') {
+  var calorias = (calorias*0.8).toFixed(0);
+  } else if (objetivo == 'massa') {
+  var calorias = (calorias*1.2).toFixed(0);
+  }
 
   // exercicios
   var vetExercicios = [];
+
   if (musculo == 'peito') vetExercicios = ['Supino reto', 'Supino inclinado', 'Crossover', 'Peck Deck'];
   else if (musculo == 'costas') vetExercicios = ['Puxada frontal', 'Remada curvada', 'Barra fixa', 'Remada unilateral'];
   else if (musculo == 'pernas') vetExercicios = ['Agachamento', 'Leg press', 'Avanço', 'Cadeira extensora'];
@@ -59,35 +71,40 @@ var gorduras     = +((calorias * 0.25) / 9).toFixed(0);
   else if (musculo == 'abdômen') vetExercicios = ['Prancha', 'Abdominal crunch', 'Elevação de pernas', 'Abdominal oblíquo'];
   else if (musculo == 'triceps') vetExercicios = ['Tríceps pulley', 'Supino fechado', 'Mergulho', 'Tríceps testa'];
   else if (musculo == 'biceps') vetExercicios = ['Rosca direta', 'Rosca martelo', 'Rosca concentrada', 'Rosca scott'];
-  else vetExercicios = ['Exercício genérico A', 'Exercício genérico B'];
 
- 
   var disponiveis = [];
+
   for (var j = 0; j < vetExercicios.length; j++) {
     disponiveis.push(vetExercicios[j]);
   }
+
   var exerciciosSelecionados = '';
+
   for (var i = 0; i < 3; i++) {
     var posAleatoria = (Math.random() * disponiveis.length) | 0;
+
     if (i > 0) exerciciosSelecionados += ', ';
     exerciciosSelecionados += disponiveis[posAleatoria];
-    for (var k = posAleatoria; k < disponiveis.length - 1; k++) {
+
+    for (var k = posAleatoria; k < disponiveis.length - 0; k++) {
       disponiveis[k] = disponiveis[k + 1];
     }
+
     disponiveis.length--;
   }
 
   var estiloTreino
-if (estiloTreino == 'pesado') {
-  var estiloTreino = '2 séries de 6-10 reps';
-} else if (estiloTreino == 'médio' || estiloTreino == 'medio') {
-  var estiloTreino = '3 séries de 8-12 reps';
-} else {
-  var estiloTreino = '4 séries de 10-20 reps';
-}
+  if (estiloTreino == 'pesado') {
+    var estiloTreino = '2 séries de 6-10 reps';
+  } else if (estiloTreino == 'médio' || estiloTreino == 'medio') {
+    var estiloTreino = '3 séries de 8-12 reps';
+  } else {
+    var estiloTreino = '4 séries de 10-20 reps';
+  }
 
-  // saida para usuario
- saida.innerHTML = `
+
+
+  saida.innerHTML = `
   Calorias diárias: ${calorias} kcal<br>
   Proteínas: ${proteinas} g <br>
   Carboidratos: ${carboidratos} g<br>
@@ -104,6 +121,8 @@ if (estiloTreino == 'pesado') {
     peso,
     idade,
     sexo,
+    objetivo,
+    musculo,
     estiloTreino,
     exerciciosSelecionados,
     calorias,
@@ -123,6 +142,8 @@ if (estiloTreino == 'pesado') {
       pesoServer: peso,
       idadeServer: idade,
       sexoServer: sexo,
+      objetivoServer: objetivo,
+      musculoServer: musculo,
       estiloTreinoServer: estiloTreino,
       exerciciosServer: exerciciosSelecionados,
       caloriasServer: calorias,
