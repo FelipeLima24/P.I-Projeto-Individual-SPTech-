@@ -32,11 +32,7 @@ header {
   cursor: pointer;
   font-size: 13px;
   text-decoration: none;
-<<<<<<< HEAD
   box-shadow: #000;
-=======
-box-shadow: #000;
->>>>>>> 33ac66877ae88153f260da2b6e725a5ab8697e40
 }
 
 .botaoCabecalho a:hover {

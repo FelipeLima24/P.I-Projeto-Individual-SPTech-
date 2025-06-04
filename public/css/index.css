@@ -173,9 +173,57 @@ text-align: center;
 
 /* / Rodape */
 
-footer{
+footer {
   background-color: #000;
-  color: #Fff;
-  height: 100px;
-  text-align: center;
+  color: #0f0; 
+  padding: 20px 40px;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #000;
+  color: #0f0; 
+  padding: 20px 40px;
+}
+
+.footer-esquerda {
+  text-align: left;
+  margin-left: -14vw;
+  font-weight: lighter;
+}
+
+.footer-meio {
+  margin: 0 auto;       
+  text-align: center;
+  margin-left: 12vw;
+  margin-top: -1.5vw;
+}
+
+.footer-direita {
+  text-align: right;
+  margin-right: -14vw;
+}
+
+.footer-meioAgra {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 8px;
+  color: #0f0; 
+}
+
+.footer-direitos {
+  font-size: 0.8rem;
+  color: #0f0; 
+  margin-top: 10px;
+}
+
+.footer-esquerda a,
+.footer-direita a {
+  color: #0f0;
+}
+
