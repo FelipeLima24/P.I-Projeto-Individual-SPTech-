@@ -77,7 +77,7 @@ header div button:hover {
 
 
 .como .texto {
-  flex: 1;                                  
+  width: 50%;
 }
 
 .como .texto h2 {
@@ -93,7 +93,7 @@ header div button:hover {
 }
 
 .como .imagem {
-  flex: 1;                                  
+  width: 50%;                                
   text-align: center;                       
 }
 
