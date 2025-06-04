@@ -33,9 +33,9 @@ peso FLOAT,
 idade INT,
 sexo CHAR(1),
 objetivo VARCHAR(45),
-musculoAlvo VARCHAR(45),
+musculo VARCHAR(45),
 estiloTreino VARCHAR(45),
-exercicios VARCHAR(45),
+exercicios VARCHAR(250),
 calorias FLOAT,
 carboidratos FLOAT,
 proteinas FLOAT,
@@ -50,5 +50,7 @@ FOREIGN KEY (fkUsuario)
 REFERENCES usuarioCadastro(idUsuario)
 );
 
+ALTER TABLE protocolo
+MODIFY COLUMN exercicios VARCHAR(250);
 
 select * from protocolo;

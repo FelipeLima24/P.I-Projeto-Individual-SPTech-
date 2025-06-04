@@ -12,4 +12,6 @@ router.get("/contar-massa", protocoloController.contarMassa);
 
 router.get("/contar-peso", protocoloController.contarPeso);
 
+router.get("/contar-musculo", protocoloController.contarMusculo)
+
 module.exports = router;

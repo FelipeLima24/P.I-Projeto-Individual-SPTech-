@@ -26,11 +26,11 @@ function entrar(req, res) {
 
 // cadastrar usuario
 function cadastrar(req, res) {
-    var nome     = req.body.nomeServer;      // lê o nome enviado pelo front
-    var email    = req.body.emailServer;     // lê o email enviado pelo front
-    var telefone = req.body.telefoneServer;  // lê o telefone enviado pelo front
-    var cpf      = req.body.cpfServer;       // lê o CPF enviado pelo front
-    var senha    = req.body.senhaServer;     // lê a senha enviada pelo front
+    var nome     = req.body.nomeServer;      
+    var email    = req.body.emailServer;     
+    var telefone = req.body.telefoneServer;  
+    var cpf      = req.body.cpfServer;       
+    var senha    = req.body.senhaServer;    
 
     // validação 
     if (nome == '' || email == '' || telefone == '' || cpf == '' || senha == '') {

@@ -8,7 +8,7 @@ function cadastrarProtocolo(fkQuestionario, fkUsuario, altura, peso,
         "exercicios=", exercicios, "exercicios=", exercicios, "dias=", dias);
 
     function criarQuestionario(descricao) {
-    return database.executar(`
+        return database.executar(`
     INSERT INTO questionario (descricao) 
     VALUES ('${descricao}');
     `);
@@ -39,9 +39,9 @@ function cadastrarProtocolo(fkQuestionario, fkUsuario, altura, peso,
 }
 
 function listarProtocolos() {
-  const sql = "SELECT * FROM protocolo;";
-  console.log("`>>>> PROTOCOLO MODEL: executando SQL:`\n" + sql);
-  return database.executar(sql);
+    const sql = "SELECT * FROM protocolo;";
+    console.log("`>>>> PROTOCOLO MODEL: executando SQL:`\n" + sql);
+    return database.executar(sql);
 }
 
 function contarEmagrecer() {
@@ -73,10 +73,24 @@ function contarPeso() {
     return database.executar(instrucao);
 }
 
+
+function contarMusculo() {
+    var instrucao = `
+        SELECT
+            musculo,
+            COUNT(*) AS quantidade
+        FROM protocolo
+        WHERE musculo IN ('peito', 'costas', 'pernas', 'braços', 'ombros', 'abdômen', 'tríceps', 'triceps', 'bíceps', 'biceps')
+        GROUP BY musculo;
+    `;
+    return database.executar(instrucao);
+}
+
 module.exports = {
-  cadastrarProtocolo,
-  listarProtocolos,
-  contarEmagrecer,
-  contarMassa,
-  contarPeso
+    cadastrarProtocolo,
+    listarProtocolos,
+    contarEmagrecer,
+    contarMassa,
+    contarPeso,
+    contarMusculo
 };

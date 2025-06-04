@@ -118,10 +118,22 @@ function contarPeso(req, res) {
         });
 }
 
+ function contarMusculo(req, res) {
+  protocoloModel.contarMusculo()
+    .then((resultado) => {
+      res.status(200).json(resultado);
+    })
+    .catch((error) => {
+      console.error(">>>> ERRO:", error.sqlMessage);
+      res.status(500).json({ erro: error.sqlMessage });
+    });
+}
+
 module.exports = {
   cadastrar,
   listar,
   contarEmagrecer,
   contarMassa,
-  contarPeso
+  contarPeso,
+  contarMusculo
 };
