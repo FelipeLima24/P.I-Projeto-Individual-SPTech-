@@ -45,97 +45,112 @@
   <script>
 
     fetch("/protocoloRoute/contar-emagrecer")
-      .then(res => res.json())
-      .then(dado => {
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (dado) {
         document.getElementById("qtd_emagrecer").innerHTML = dado.emagrecer;
       })
-      .catch(erro => {
-        console.error("Erro ao buscar dados:", erro);
-        document.getElementById("qtd_emagrecer").innerHTML = "Erro ao carregar";
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de emagrecer:", erro);
+        document.getElementById("qtd_emagrecer").innerHTML = "—";
       });
 
-      
-       fetch("/protocoloRoute/contar-massa")
-      .then(res => res.json())
-      .then(dado => {
+    fetch("/protocoloRoute/contar-massa")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (dado) {
         document.getElementById("qtd_massa").innerHTML = dado.massa;
       })
-      .catch(erro => {
-        console.error("Erro ao buscar dados:", erro);
-        document.getElementById("qtd_massa").innerHTML = "Erro ao carregar";
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de massa:", erro);
+        document.getElementById("qtd_massa").innerHTML = "—";
       });
 
-      
-       fetch("/protocoloRoute/contar-peso")
-      .then(res => res.json())
-      .then(dado => {
-         document.getElementById("qtd_peso").innerHTML = dado.pesoMedio + " kg";
+    fetch("/protocoloRoute/contar-peso")
+      .then(function (res) {
+        return res.json();
       })
-      .catch(erro => {
-        console.error("Erro ao buscar dados:", erro);
-        document.getElementById("qtd_peso").innerHTML = "Erro ao carregar";
+      .then(function (dado) {
+        document.getElementById("qtd_peso").innerHTML = dado.pesoMedio;
+      })
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de peso:", erro);
+        document.getElementById("qtd_peso").innerHTML = "—";
       });
 
-    
+    fetch("/protocoloRoute/contar-musculo")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (dadosMusculo) {
 
+        var labels = [];
+        var quantidades = [];
+        for (var i = 0; i < dadosMusculo.length; i++) {
+          labels.push(dadosMusculo[i].musculo);
+          quantidades.push(dadosMusculo[i].quantidade);
+        }
 
-    let labels = [];
+        var dadosGrafico = {
+          labels: labels,
+          datasets: [{
+            label: 'Quantidade de usuários',
+            data: quantidades,
+            backgroundColor: [
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(255, 205, 86, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)',
+              'rgba(75, 192, 75, 0.6)' 
+            ]
+          }]
+        };
 
-    let dados = {
-      labels: labels,
-      datasets: [{
-        label: 'Quantidade de usuários',
-        data: [],
-
-        backgroundColor: [
-          'rgba(75, 192, 192, 0.6)',   // peito
-          'rgba(255, 99, 132, 0.6)',   // costas
-          'rgba(255, 205, 86, 0.6)',   // pernas
-          'rgba(54, 162, 235, 0.6)',   // braços
-          'rgba(153, 102, 255, 0.6)',  // ombros
-          'rgba(255, 159, 64, 0.6)'    // abdômen
-        ],
-
-
-      }]
-    };
-
-    const mokados = [
-      { musculo: 'peito', quantidade: 30 },
-      { musculo: 'costas', quantidade: 20 },
-      { musculo: 'pernas', quantidade: 15 },
-      { musculo: 'braços', quantidade: 10 },
-      { musculo: 'ombros', quantidade: 35 },
-      { musculo: 'abdômen', quantidade: 25 }
-    ];
-
-    for (let i = 0; i < mokados.length; i++) {
-      let registro = mokados[i];
-      labels.push(registro.musculo);
-      dados.datasets[0].data.push(registro.quantidade);
-    }
-
-    let grafico = document.getElementById('musculoChart').getContext('2d');
-    new Chart(grafico, {
-      type: 'bar',
-      data: dados,
-      options: {
+        var opcoes = {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Escolha dos músculos dos usuários',
+            font: {
+              size: 18
+            }
+          }
+        },
         scales: {
           x: {
             title: {
+              display: true,
               text: 'Músculos'
             }
           },
           y: {
             beginAtZero: true,
             title: {
+              display: true,
               text: 'Quantidade de usuários'
-            }
+            },
+            max: 10,
+            stepSize: 5
           }
         }
-      }
-    });
-  </script>
-</body>
+      };
 
-</html>
+        var myChart = document.getElementById('musculoChart').getContext('2d');
+        new Chart(myChart, {
+          type: 'bar',
+          data: dadosGrafico,
+          options: opcoes
+        });
+      })
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de músculos:", erro);
+      });
+  </script>
+
+
+
+ 
