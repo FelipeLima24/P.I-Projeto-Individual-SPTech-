@@ -13,8 +13,16 @@ function cadastrar() {
   console.log("Senha:", senha);
 
   if (email == '' || nome == '' || telefone == '' || senha == '' || cpf == '') {
-    msg.innerHTML = `Por favor insira todos os campos!`
+    alert(`Por favor insira todos os campos!`)
+    if (ipt_cpf.value > 11) {
+      alert(`CPF inválido, verifique a quantidade de caracteres!`)
+    }
+    if (telefone > 11) {
+      alert(`Telefone inválido, verifique a quantidade de caracteres!`)
+    }
   }
+
+
 
   fetch("http://localhost:3333/cadastroRoute/cadastrar", {
     method: "POST",
@@ -28,20 +36,19 @@ function cadastrar() {
     })
   })
 
-     .then(res => {
-    if (!res.ok) {
-      throw new Error("Falha no cadastro");
-    }
-    return res.json();         
-  })
-  .then(json => {
-    msg.style.color = 'green';
-    msg.innerHTML = ` Cadastro realizado com sucesso!`;
-    window.location.href = 'login.html';
-  })
-  .catch(err => {
-    console.error("Erro na resposta do servidor:", err);
-    msg.style.color = 'red';
-    msg.innerHTML = ` Erro ao cadastrar. Tente novamente.`;
-  });
+    .then(res => {
+      if (email == '' || nome == '' || telefone == '' || senha == '' || cpf == '') {
+        msg.innerHTML = `Por favor insira todos os campos!`
+        return res.json();
+      }
+      if (!res.ok) throw new Error("Falha no cadastro");
+    })
+    .then(json => {
+      msg.innerHTML = "Cadastro realizado com sucesso!";
+      window.location.href = "login.html";
+    })
+    .catch(err => {
+      console.error("Erro na resposta do servidor:", err);
+      // msg.innerHTML = "Erro ao cadastrar.";
+    });
 }

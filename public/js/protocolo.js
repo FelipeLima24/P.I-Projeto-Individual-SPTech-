@@ -21,9 +21,24 @@ function calcular() {
     valorTMB = 10 * peso + 6.25 * altura - 5 * idade - 161;
   }
 
+  if (
+    fkQuestionario == '' ||
+    fkUsuario == '' ||
+    altura == '' ||
+    peso == '' ||
+    idade == '' ||
+    sexo == '' ||
+    objetivo == '' ||
+    estiloTreino == '' ||
+    dias == '' ||
+    musculo == ''
+  ) {
+    alert('Preencha todos os campos.');
+    return;
+  }
+
   msg.innerHTML = `Sua taxa metabólica basal é de ${valorTMB} kcal/dia`;
 }
-
 function protocolo() {
   calcular();
 
@@ -56,21 +71,34 @@ function protocolo() {
 
 
   if (objetivo == 'emagrecer') {
-  var calorias = (calorias*0.8).toFixed(0);
+    var calorias = (calorias * 0.8).toFixed(0);
   } else if (objetivo == 'massa') {
-  var calorias = (calorias*1.2).toFixed(0);
+    var calorias = (calorias * 1.2).toFixed(0);
+  }
+
+  var musculosValidos = ['peito', 'costas', 'pernas', 'ombros', 'abdomen', 'abdômen', 'biceps', 'bíceps', 'triceps', 'tríceps'];
+  if (musculosValidos.indexOf(musculo) < 0) {
+    alert('Músculo inválido. Escolha entre: peito, costas, pernas, ombros, abdômen, bíceps ou tríceps.');
+    return;
   }
 
   // exercicios
   var vetExercicios = [];
 
-  if (musculo == 'peito') vetExercicios = ['Supino reto', 'Supino inclinado', 'Crossover', 'Peck Deck'];
-  else if (musculo == 'costas') vetExercicios = ['Puxada frontal', 'Remada curvada', 'Barra fixa', 'Remada unilateral'];
-  else if (musculo == 'pernas') vetExercicios = ['Agachamento', 'Leg press', 'Avanço', 'Cadeira extensora'];
-  else if (musculo == 'ombros') vetExercicios = ['Desenvolvimento militar', 'Elevação lateral', 'Elevação frontal', 'Remada alta'];
-  else if (musculo == 'abdômen') vetExercicios = ['Prancha', 'Abdominal crunch', 'Elevação de pernas', 'Abdominal oblíquo'];
-  else if (musculo == 'triceps') vetExercicios = ['Tríceps pulley', 'Supino fechado', 'Mergulho', 'Tríceps testa'];
-  else if (musculo == 'biceps') vetExercicios = ['Rosca direta', 'Rosca martelo', 'Rosca concentrada', 'Rosca scott'];
+  if (musculo == 'peito' || musculo == 'peitos') 
+    vetExercicios = ['Supino reto', 'Supino inclinado', 'Crossover', 'Peck Deck'];
+  else if (musculo == 'costas' || musculo == 'costa') 
+    vetExercicios = ['Puxada frontal', 'Remada curvada', 'Barra fixa', 'Remada unilateral'];
+  else if (musculo == 'pernas' || musculo == 'perna') 
+    vetExercicios = ['Agachamento', 'Leg press', 'Avanço', 'Cadeira extensora'];
+  else if (musculo == 'ombros' || musculo == 'ombro') 
+    vetExercicios = ['Desenvolvimento militar', 'Elevação lateral', 'Elevação frontal', 'Remada alta'];
+  else if (musculo == 'abdômen' || musculo == 'abdomen') 
+    vetExercicios = ['Prancha', 'Abdominal crunch', 'Elevação de pernas', 'Abdominal oblíquo'];
+  else if (musculo == 'triceps' || musculo == 'tríceps') 
+    vetExercicios = ['Tríceps pulley', 'Supino fechado', 'Mergulho', 'Tríceps testa'];
+  else if (musculo == 'biceps' || musculo == 'bíceps') 
+    vetExercicios = ['Rosca direta', 'Rosca martelo', 'Rosca concentrada', 'Rosca scott'];
 
   var disponiveis = [];
 

@@ -18,23 +18,20 @@ function entrar() {
     })
   })
   .then(res => {
-    if (res.status == 200) {
+    if (res.status === 200) {
       return res.json();
-    } else if (res.status == 403) {
+    } else if (res.status === 403) {
       throw new Error("Credenciais inválidas");
     } else {
       throw new Error("Erro inesperado");
     }
   })
   .then(usuario => {
-    msg.style.color = "green";
-    msg.innerHTML = "Login efetuado com sucesso! Redirecionando…";
     localStorage.setItem("usuario", JSON.stringify(usuario));
     window.location.href = "protocolo.html";
   })
   .catch(err => {
     console.error("Erro no login:", err);
-    msg.style.color = "red";
-    msg.innerHTML = "Falha no login, verifique suas credenciais.";
+    msg.innerHTML = err.message;
   });
 }
