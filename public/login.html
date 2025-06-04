@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <!-- cabeçalho -->
+  <header>
+    <div class="logo">SmartShape</div>
+    <div class="botaoCabecalho">
+      <a href='index.html'">Home</a>
+      <a href='cadastro.html'">Cadastro</a>
+    </div>
+  </header>
+
+  <div class="login">
+    <h2>Login</h2>
+
+    <p> Insira seu email </p> <input id="ipt_email" type="email" placeholder="Felipe"> <br><br>
+    <p> Insira sua senha </p> <input id="ipt_senha" type="password"> <br><br>
+
+    <div class="botaoEntrar"> 
+    <button onclick="entrar()">Entrar</button>
+    </div>
+    <div id="msg"></div>
+  </div>  
+
+  <p>Ainda não está cadastrado? <a href="cadastro.html">Cadastre-se</a></p>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

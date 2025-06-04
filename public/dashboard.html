@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartShape Dashboards</title>
+
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">SmartShape</div>
+    <div class="botaoCabecalho">
+      <a href="index.html">Home</a>
+      <a href="protocolo.html">Protocolo</a>
+    </div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi1">
+      <h3>Peso médio dos usuários</h3>
+      <p><span id="qtd_peso"></span></p>
+    </div>
+    <div class="kpi2">
+      <h3>Quantidade de pessoas que querem emagrecer</h3>
+      <p><span id="qtd_emagrecer"></span></p>
+    </div>
+    <div class="kpi3">
+      <h3>Quantidade de pessoas que querem ganhar massa</h3>
+      <p><span id="qtd_massa"></span></p>
+    </div>
+  </div>
+
+  <div class="grafico">
+    <canvas id="musculoChart"></canvas>
+  </div>
+
+  <script>
+
+    fetch("/protocoloRoute/contar-emagrecer")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (dado) {
+        document.getElementById("qtd_emagrecer").innerHTML = dado.emagrecer;
+      })
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de emagrecer:", erro);
+        document.getElementById("qtd_emagrecer").innerHTML = "—";
+      });
+
+    fetch("/protocoloRoute/contar-massa")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (dado) {
+        document.getElementById("qtd_massa").innerHTML = dado.massa;
+      })
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de massa:", erro);
+        document.getElementById("qtd_massa").innerHTML = "—";
+      });
+
+    fetch("/protocoloRoute/contar-peso")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (dado) {
+        document.getElementById("qtd_peso").innerHTML = dado.pesoMedio;
+      })
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de peso:", erro);
+        document.getElementById("qtd_peso").innerHTML = "—";
+      });
+
+    fetch("/protocoloRoute/contar-musculo")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (dadosMusculo) {
+
+        var labels = [];
+        var quantidades = [];
+        for (var i = 0; i < dadosMusculo.length; i++) {
+          labels.push(dadosMusculo[i].musculo);
+          quantidades.push(dadosMusculo[i].quantidade);
+        }
+
+        var dadosGrafico = {
+          labels: labels,
+          datasets: [{
+            label: 'Quantidade de usuários',
+            data: quantidades,
+            backgroundColor: [
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(255, 205, 86, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)',
+              'rgba(75, 192, 75, 0.6)' 
+            ]
+          }]
+        };
+
+        var opcoes = {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Escolha dos músculos dos usuários',
+            font: {
+              size: 18
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Músculos'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Quantidade de usuários'
+            },
+            max: 10,
+            stepSize: 5
+          }
+        }
+      };
+
+        var myChart = document.getElementById('musculoChart').getContext('2d');
+        new Chart(myChart, {
+          type: 'bar',
+          data: dadosGrafico,
+          options: opcoes
+        });
+      })
+      .catch(function (erro) {
+        console.error("Erro ao buscar dados de músculos:", erro);
+      });
+  </script>
+
+
+
+ 

@@ -1,0 +1,229 @@
+
+* {                                
+  margin: 0;                    
+  padding: 0;                      
+  box-sizing: border-box;         
+}
+
+
+body {
+  font-family: 'Helvetica Neue', sans-serif; 
+  background-color: #ffffff;                 
+  color: #000000;                               
+  line-height: 1.6;                          
+}
+
+/* cabecalho */
+header {
+  height: 10.46vh;
+  display: flex;                             
+  justify-content: space-between;           
+  align-items: center;                      
+  padding: 20px 40px;                        
+  background-color: #000;                    
+}
+
+.logo {
+  font-size: 2rem;                          
+  color: #0f0;                              
+  font-weight: bold;                        
+}
+
+header div button {
+  background-color: #0f0;                   
+  color: #000;                              
+  font-weight: bold;                        
+  border: none;                             
+  padding: 10px 20px;                       
+  border-radius: 6px;                       
+  margin-left: 10px;                        
+  cursor: pointer;                          
+}
+
+header div button:hover {
+ opacity: 0.85;                         
+}
+
+
+.titulo {
+  max-width: 1000px;                        
+  margin: 60px auto 20px;                   
+  text-align: center;                     
+  padding: 0 20px;                          
+}
+
+.titulo h1 {
+  font-size: 2rem;                          
+  margin-bottom: 20px;                      
+  font-weight: bold;                        
+}
+
+.titulo p {
+  font-size: 1.1rem;                        
+  color: #000000;                              
+  line-height: 1.8;                         
+}
+
+/* como funciona */
+.como {
+  display: flex;                            
+  align-items: center;                      
+  max-width: 1000px;                        
+  margin: 40px auto;                        
+  gap: 40px;                                
+  padding: 0 20px;                          
+  
+}
+
+
+.como .texto {
+  flex: 1;                                  
+}
+
+.como .texto h2 {
+  font-size: 1.5rem;                        
+  margin-bottom: 12px;                      
+  color: #000;       
+  margin-left: 5vw;                       
+}
+
+.como .texto p {
+  font-size: 1rem;                         
+  color: #000000;                              
+}
+
+.como .imagem {
+  flex: 1;                                  
+  text-align: center;                       
+}
+
+.como .imagem img {
+  max-width: 100%;                         
+  border-radius: 12px;                      
+}
+
+/* bf imagens */
+.bfImg {
+  max-width: 1000px;                        
+  margin: 5px auto;                      
+  padding: 0 20px;                          
+  text-align: center;                      
+}
+
+.bfImg img {
+  max-width: 100%;                        
+  border-radius: 8px;                       
+}
+
+/* bf explicacao */
+.bfTitulo {
+  max-width: 1000px;                        
+  margin: 40px auto;                        
+  background: #fff;                         
+  padding: 30px;                            
+  border-radius: 10px;                      
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);    
+}
+
+.bfTitulo h3 {
+  display: flex;
+  justify-content: center; 
+  font-size: 1.5rem;                        
+  margin-bottom: 16px;                      
+  
+
+}
+
+.box-bf p {
+  font-size: 1rem;                          
+  color: #000000;                              
+  line-height: 1.7;                         
+  
+}
+
+
+#msg {
+  margin-top: 16px;                         
+  color: #0f0;                              
+  font-weight: bold;                        
+  text-align: center;                       
+}
+
+/* alteração inputs  */
+
+#peso-id{
+text-align: center;
+}
+
+#altura-id{
+  text-align: center;
+}
+
+#sexo-id{
+  text-align: center;
+}
+
+#idade-id{
+  text-align: center;
+}
+
+#fator-id{
+  text-align: center;
+}
+
+/* / Rodape */
+
+footer {
+  background-color: #000;
+  color: #0f0; 
+  padding: 20px 40px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #000;
+  color: #0f0; 
+  padding: 20px 40px;
+}
+
+.footer-esquerda {
+  text-align: left;
+  margin-left: -14vw;
+  font-weight: lighter;
+}
+
+.footer-meio {
+  margin: 0 auto;       
+  text-align: center;
+  margin-left: 12vw;
+  margin-top: -1.5vw;
+}
+
+.footer-direita {
+  text-align: right;
+  margin-right: -14vw;
+}
+
+.footer-meioAgra {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 8px;
+  color: #0f0; 
+}
+
+.footer-direitos {
+  font-size: 0.8rem;
+  color: #0f0; 
+  margin-top: 10px;
+}
+
+.footer-esquerda a,
+.footer-direita a {
+  color: #0f0;
+}
+
