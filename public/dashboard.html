@@ -24,15 +24,15 @@
   </header>
 
   <div class="kpis">
-    <div class="kpi1">
+    <div class="kpi">
       <h3>Peso médio dos usuários</h3>
       <p><span id="qtd_peso"></span></p>
     </div>
-    <div class="kpi2">
+    <div class="kpi">
       <h3>Quantidade de pessoas que querem emagrecer</h3>
       <p><span id="qtd_emagrecer"></span></p>
     </div>
-    <div class="kpi3">
+   <div class="kpi">
       <h3>Quantidade de pessoas que querem ganhar massa</h3>
       <p><span id="qtd_massa"></span></p>
     </div>
@@ -99,45 +99,45 @@
             label: 'Quantidade de usuários',
             data: quantidades,
             backgroundColor: [
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(255, 205, 86, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(75, 192, 75, 0.6)' 
+              'rgba(200, 255, 200, 0.6)',
+              'rgba(170, 240, 170, 0.6)',
+              'rgba(140, 225, 140, 0.6)',
+              'rgba(110, 200, 110, 0.6)',
+              'rgba(80, 175, 80, 0.6)',
+              'rgba(50, 150, 50, 0.6)',
+              'rgba(20, 120, 20, 0.6)'
             ]
           }]
         };
 
         var opcoes = {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Escolha dos músculos dos usuários',
-            font: {
-              size: 18
-            }
-          }
-        },
-        scales: {
-          x: {
+          plugins: {
             title: {
               display: true,
-              text: 'Músculos'
+              text: 'Escolha dos músculos dos usuários',
+              font: {
+                size: 18
+              }
             }
           },
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: 'Quantidade de usuários'
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Músculos'
+              }
             },
-            max: 10,
-            stepSize: 5
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Quantidade de usuários'
+              },
+              max: 10,
+              stepSize: 5
+            }
           }
-        }
-      };
+        };
 
         var myChart = document.getElementById('musculoChart').getContext('2d');
         new Chart(myChart, {
@@ -150,7 +150,3 @@
         console.error("Erro ao buscar dados de músculos:", erro);
       });
   </script>
-
-
-
- 

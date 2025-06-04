@@ -109,17 +109,21 @@ function protocolo() {
   var exerciciosSelecionados = '';
 
   for (var i = 0; i < 3; i++) {
-    var posAleatoria = (Math.random() * disponiveis.length) | 0;
 
-    if (i > 0) exerciciosSelecionados += ', ';
-    exerciciosSelecionados += disponiveis[posAleatoria];
+  var ex = (Math.random() * disponiveis.length).toFixed(0);
+  var posAleatoria = Number(ex);
 
-    for (var k = posAleatoria; k < disponiveis.length - 0; k++) {
-      disponiveis[k] = disponiveis[k + 1];
-    }
+  if (posAleatoria >= disponiveis.length) {
 
-    disponiveis.length--;
+    posAleatoria = disponiveis.length - 1;
   }
+
+  if (i > 0) exerciciosSelecionados += ', '; {    
+  exerciciosSelecionados += disponiveis[posAleatoria];
+  
+ }
+   disponiveis.splice(posAleatoria, 1);
+}
 
   var estiloTreino
   if (estiloTreino == 'pesado') {
